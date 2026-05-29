@@ -1,0 +1,13 @@
+{
+  "doc_name": "INVOICE_000004",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/INVOICE_000004.png",
+  "fields": {
+    "company": "Digital Systems",
+    "date": "2026-03-25",
+    "address": null,
+    "total": "$11391.51"
+  }
+}

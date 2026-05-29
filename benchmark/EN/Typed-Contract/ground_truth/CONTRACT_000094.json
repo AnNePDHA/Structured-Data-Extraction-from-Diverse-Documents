@@ -1,0 +1,14 @@
+{
+  "doc_name": "CONTRACT_000094",
+  "lang": "EN",
+  "doc_type": "contract",
+  "subtype": "typed",
+  "image_path": "img/CONTRACT_000094.png",
+  "fields": {
+    "party_a": "Innovate Ltd",
+    "party_b": "Al-Madina Traders",
+    "effective_date": "2026-03-11",
+    "term": "24 months",
+    "governing_law": "Pakistan"
+  }
+}

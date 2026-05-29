@@ -1,0 +1,57 @@
+# ===== Secrets / credentials (NEVER commit) =====
+.env
+.env.*
+!.env.example
+*.key
+.txt
+
+# ===== Python environment & caches =====
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# ===== Source code (not published in this repo) =====
+pipelines/
+evaluation/
+scripts/
+notebooks/*.ipynb
+
+# ===== Raw / bulky data (publish only data-processed) =====
+data/
+data-processed/**/*.tif
+data-processed/**/*.tiff
+
+# ===== LaTeX build artifacts (publish only the PDF) =====
+paper/*.aux
+paper/*.log
+paper/*.toc
+paper/*.lof
+paper/*.lot
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+paper/*.fls
+paper/*.fdb_latexmk
+paper/_*.minted
+paper/**/*.minted
+paper/thesis.tex
+paper/thesis copy.tex
+paper/*.sty
+paper/report-ref/
+
+# ===== Internal / draft material =====
+.claude/
+CLAUDE.md
+draft/
+references/
+outline/
+link.md
+thesis_workflow.md
+pipeline_a_vlm_direct.md
+pipeline_b_ocr_llm.md
+
+# ===== OS =====
+.DS_Store
+Thumbs.db

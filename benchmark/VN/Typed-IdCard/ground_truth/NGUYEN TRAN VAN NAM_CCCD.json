@@ -1,0 +1,15 @@
+{
+  "doc_name": "NGUYEN TRAN VAN NAM_CCCD",
+  "lang": "VN",
+  "doc_type": "id_card",
+  "subtype": "typed",
+  "image_path": "img/NGUYEN TRAN VAN NAM_CCCD.png",
+  "fields": {
+    "dob": "10/12/1990",
+    "expire_date": "18/10/2000",
+    "name": "NGUYỄN TRẦN VĂN NAM",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "id_num": "001122334454"
+  }
+}

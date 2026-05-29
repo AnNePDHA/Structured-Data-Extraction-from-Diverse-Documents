@@ -1,0 +1,51 @@
+{
+  "doc_name": "CONTRACT_000027",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T06:52:10.485936+00:00",
+  "predicted": {
+    "party_a": "SecureTech",
+    "party_b": "Future Systems",
+    "effective_date": "2026-03-17",
+    "term": "24 months",
+    "governing_law": "the laws of Pakistan",
+    "contract_number": null,
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "SecureTech",
+    "party_b": "Future Systems",
+    "effective_date": "2026-03-17",
+    "term": "24 months",
+    "governing_law": "Pakistan"
+  },
+  "exact_match": {
+    "party_a": true,
+    "party_b": true,
+    "effective_date": true,
+    "term": true,
+    "governing_law": false,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 1.0,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 0.4,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.8571,
+  "overall_token_f1": 0.9143,
+  "latency_sec": 1.44,
+  "usage": {
+    "prompt_tokens": 2830,
+    "completion_tokens": 61,
+    "thinking_tokens": null,
+    "total_tokens": 2891
+  },
+  "meta": {},
+  "error": null
+}

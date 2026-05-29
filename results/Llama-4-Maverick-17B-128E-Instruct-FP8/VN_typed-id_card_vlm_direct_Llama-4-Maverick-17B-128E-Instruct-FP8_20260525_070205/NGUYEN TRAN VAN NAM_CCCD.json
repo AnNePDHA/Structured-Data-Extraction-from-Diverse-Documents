@@ -1,0 +1,49 @@
+{
+  "doc_name": "NGUYEN TRAN VAN NAM_CCCD",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T07:02:29.538036+00:00",
+  "predicted": {
+    "id_num": "001122334454",
+    "name": "NGUYỄN TRẦN VĂN NAM",
+    "dob": "10/12/1990",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "expire_date": "18/10/2000"
+  },
+  "ground_truth": {
+    "dob": "10/12/1990",
+    "expire_date": "18/10/2000",
+    "name": "NGUYỄN TRẦN VĂN NAM",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "id_num": "001122334454"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": true,
+    "dob": true,
+    "nationality": true,
+    "origin_place": true,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 1.0,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 1.0,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 2.16,
+  "usage": {
+    "prompt_tokens": 2631,
+    "completion_tokens": 70,
+    "thinking_tokens": null,
+    "total_tokens": 2701
+  },
+  "meta": {},
+  "error": null
+}

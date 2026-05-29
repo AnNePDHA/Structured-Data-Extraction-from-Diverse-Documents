@@ -1,0 +1,50 @@
+{
+  "product_name": {
+    "description": "Product name printed on the nutrition label",
+    "format": "keep the original text exactly as printed"
+  },
+  "energy": {
+    "description": "Energy content per serving. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit is typically Kcal"
+  },
+  "protein": {
+    "description": "Protein content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. mg, g)"
+  },
+  "fat": {
+    "description": "Fat content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. g)"
+  },
+  "carbohydrate": {
+    "description": "Carbohydrate content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. g)"
+  },
+  "vitamin_d": {
+    "description": "Vitamin D content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. IU)"
+  },
+  "vitamin_b2": {
+    "description": "Vitamin B2 content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. mg)"
+  },
+  "vitamin_b3": {
+    "description": "Vitamin B3 content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. mg)"
+  },
+  "vitamin_b6": {
+    "description": "Vitamin B6 content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. mg)"
+  },
+  "calcium": {
+    "description": "Calcium content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. mg)"
+  },
+  "phosphorus": {
+    "description": "Phosphorus content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. mg)"
+  },
+  "iron": {
+    "description": "Iron content. Return an object {description, unit, value}",
+    "format": "value is the printed number; unit as printed (e.g. mg)"
+  }
+}

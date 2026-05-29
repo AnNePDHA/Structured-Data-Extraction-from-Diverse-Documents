@@ -1,0 +1,41 @@
+{
+  "doc_name": "INVOICE_000004",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T06:55:40.645479+00:00",
+  "predicted": {
+    "company": "Digital Systems",
+    "date": "2026-03-25",
+    "address": null,
+    "total": "$11391.51"
+  },
+  "ground_truth": {
+    "company": "Digital Systems",
+    "date": "2026-03-25",
+    "address": null,
+    "total": "$11391.51"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 1.006,
+  "usage": {
+    "prompt_tokens": 2543,
+    "completion_tokens": 33,
+    "thinking_tokens": null,
+    "total_tokens": 2576
+  },
+  "meta": {},
+  "error": null
+}

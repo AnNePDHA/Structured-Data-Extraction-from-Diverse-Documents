@@ -1,0 +1,15 @@
+{
+  "doc_name": "NGUYEN THI HOA_CCCD",
+  "lang": "VN",
+  "doc_type": "id_card",
+  "subtype": "typed",
+  "image_path": "img/NGUYEN THI HOA_CCCD.png",
+  "fields": {
+    "dob": "20/11/1990",
+    "expire_date": "28/09/2000",
+    "name": "NGUYỄN THỊ HOA",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "id_num": "001122334450"
+  }
+}

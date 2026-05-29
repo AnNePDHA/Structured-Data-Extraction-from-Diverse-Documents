@@ -1,0 +1,49 @@
+{
+  "doc_name": "286.rf.70805e1d828983cf57708be436b28c18",
+  "pipeline": "vlm_direct",
+  "model": "gpt-5.2-chat",
+  "timestamp": "2026-05-25T06:34:46.480549+00:00",
+  "predicted": {
+    "id_num": "036196012656",
+    "name": "TRẦN THỊ THÚY LIỄU",
+    "dob": "12/12/1996",
+    "nationality": "Việt Nam",
+    "origin_place": "Nam Duong, Nam Truc, Nam Dinh",
+    "expire_date": "12/12/2036"
+  },
+  "ground_truth": {
+    "dob": "12/12/1996",
+    "expire_date": "12/12/2036",
+    "name": "TRẦN THỊ THÚY LIỄU",
+    "nationality": "Việt Nam",
+    "origin_place": "Nam Dương, Nam Trực, Nam Định",
+    "id_num": "036196012656"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": true,
+    "dob": true,
+    "nationality": true,
+    "origin_place": false,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 1.0,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 0.5,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 0.8333,
+  "overall_token_f1": 0.9167,
+  "latency_sec": 12.601,
+  "usage": {
+    "prompt_tokens": 1316,
+    "completion_tokens": 414,
+    "thinking_tokens": null,
+    "total_tokens": 1730
+  },
+  "meta": {},
+  "error": null
+}

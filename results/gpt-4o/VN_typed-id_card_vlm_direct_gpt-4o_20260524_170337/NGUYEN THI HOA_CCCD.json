@@ -1,0 +1,49 @@
+{
+  "doc_name": "NGUYEN THI HOA_CCCD",
+  "pipeline": "vlm_direct",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T17:04:24.491734+00:00",
+  "predicted": {
+    "id_num": "001122334450",
+    "name": "NGUYỄN THỊ HOA",
+    "dob": "20/11/1990",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "expire_date": "28/09/2000"
+  },
+  "ground_truth": {
+    "dob": "20/11/1990",
+    "expire_date": "28/09/2000",
+    "name": "NGUYỄN THỊ HOA",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "id_num": "001122334450"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": true,
+    "dob": true,
+    "nationality": true,
+    "origin_place": true,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 1.0,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 1.0,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 4.889,
+  "usage": {
+    "prompt_tokens": 1215,
+    "completion_tokens": 81,
+    "thinking_tokens": null,
+    "total_tokens": 1296
+  },
+  "meta": {},
+  "error": null
+}

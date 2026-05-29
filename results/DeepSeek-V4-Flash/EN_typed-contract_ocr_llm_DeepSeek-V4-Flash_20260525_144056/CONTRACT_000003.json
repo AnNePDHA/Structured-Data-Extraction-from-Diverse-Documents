@@ -1,0 +1,53 @@
+{
+  "doc_name": "CONTRACT_000003",
+  "pipeline": "ocr_llm",
+  "model": "DeepSeek-V4-Flash",
+  "timestamp": "2026-05-25T14:41:01.840805+00:00",
+  "predicted": {
+    "party_a": "FastTrack Solutions",
+    "party_b": "Future Systems",
+    "effective_date": "2026-04-21",
+    "term": "6 months",
+    "governing_law": "the laws of Pakistan",
+    "contract_number": null,
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "FastTrack Solutions",
+    "party_b": "Future Systems",
+    "effective_date": "2026-04-21",
+    "term": "6 months",
+    "governing_law": "Pakistan"
+  },
+  "exact_match": {
+    "party_a": true,
+    "party_b": true,
+    "effective_date": true,
+    "term": true,
+    "governing_law": false,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 1.0,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 0.4,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.8571,
+  "overall_token_f1": 0.9143,
+  "latency_sec": 5.295,
+  "usage": {
+    "prompt_tokens": 672,
+    "completion_tokens": 71,
+    "thinking_tokens": null,
+    "total_tokens": 743
+  },
+  "meta": {
+    "ocr_chars": 530
+  },
+  "error": null
+}

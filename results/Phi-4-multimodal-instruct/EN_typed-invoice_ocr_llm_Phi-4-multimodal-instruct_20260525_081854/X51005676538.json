@@ -1,0 +1,43 @@
+{
+  "doc_name": "X51005676538",
+  "pipeline": "ocr_llm",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:21:31.778507+00:00",
+  "predicted": {
+    "company": "SYARIKAT PERNIAGAAN GIN KEE",
+    "date": "04/01/2018",
+    "address": "81109-A NO 290, JALAN AIR PANAS, SETAPAK, 53200, KUALA LUMPUR",
+    "total": "44.73"
+  },
+  "ground_truth": {
+    "company": "SYARIKAT PERNIAGAAN GIN KEE",
+    "date": "04/01/2018",
+    "address": "NO 290, JALAN AIR PANAS, SETAPAK, 53200, KUALA LUMPUR.",
+    "total": "44.73"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 0.9,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.75,
+  "overall_token_f1": 0.975,
+  "latency_sec": 7.586,
+  "usage": {
+    "prompt_tokens": 566,
+    "completion_tokens": 80,
+    "thinking_tokens": null,
+    "total_tokens": 646
+  },
+  "meta": {
+    "ocr_chars": 719
+  },
+  "error": null
+}

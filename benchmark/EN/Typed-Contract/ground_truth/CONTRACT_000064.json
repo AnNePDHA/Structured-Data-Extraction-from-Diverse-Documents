@@ -1,0 +1,14 @@
+{
+  "doc_name": "CONTRACT_000064",
+  "lang": "EN",
+  "doc_type": "contract",
+  "subtype": "typed",
+  "image_path": "img/CONTRACT_000064.png",
+  "fields": {
+    "party_a": "Innovate Ltd",
+    "party_b": "Future Systems",
+    "effective_date": "2026-05-03",
+    "term": "24 months",
+    "governing_law": "Pakistan"
+  }
+}

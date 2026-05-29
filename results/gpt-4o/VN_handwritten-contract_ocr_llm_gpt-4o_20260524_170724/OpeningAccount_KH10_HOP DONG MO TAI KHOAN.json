@@ -1,0 +1,55 @@
+{
+  "doc_name": "OpeningAccount_KH10_HOP DONG MO TAI KHOAN",
+  "pipeline": "ocr_llm",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T17:07:32.523199+00:00",
+  "predicted": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank)",
+    "party_b": "Nguyên Tron Van Nam",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": "10",
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank)",
+    "party_b": "Nguyễn Trần Văn Nam",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": "10",
+    "contract_value": null
+  },
+  "exact_match": {
+    "party_a": true,
+    "party_b": false,
+    "effective_date": true,
+    "term": true,
+    "governing_law": true,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 0.25,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 1.0,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.8571,
+  "overall_token_f1": 0.8929,
+  "latency_sec": 7.548,
+  "usage": {
+    "prompt_tokens": 1560,
+    "completion_tokens": 74,
+    "thinking_tokens": null,
+    "total_tokens": 1634
+  },
+  "meta": {
+    "ocr_chars": 2876
+  },
+  "error": null
+}

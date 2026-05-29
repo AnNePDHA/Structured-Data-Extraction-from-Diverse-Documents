@@ -1,0 +1,43 @@
+{
+  "doc_name": "INVOICE_000075",
+  "pipeline": "ocr_llm",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T06:56:37.584540+00:00",
+  "predicted": {
+    "company": "Pak Logistics",
+    "date": "2026-04-05",
+    "address": null,
+    "total": "$7025.29"
+  },
+  "ground_truth": {
+    "company": "Pak Logistics",
+    "date": "2026-04-05",
+    "address": null,
+    "total": "$7025.29"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 2.975,
+  "usage": {
+    "prompt_tokens": 371,
+    "completion_tokens": 33,
+    "thinking_tokens": null,
+    "total_tokens": 404
+  },
+  "meta": {
+    "ocr_chars": 281
+  },
+  "error": null
+}

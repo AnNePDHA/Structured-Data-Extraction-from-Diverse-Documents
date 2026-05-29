@@ -1,0 +1,12 @@
+{
+  "doc_name": "X51005663280",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/X51005663280.jpg",
+  "fields": {
+    "company": "T.A.S LEISURE SDN BHD",
+    "date": "30 DEC 17",
+    "total": "102.40"
+  }
+}

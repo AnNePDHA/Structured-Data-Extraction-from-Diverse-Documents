@@ -1,0 +1,13 @@
+{
+  "doc_name": "INVOICE_000094",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/INVOICE_000094.png",
+  "fields": {
+    "company": "Global Traders",
+    "date": "2026-04-08",
+    "address": null,
+    "total": "$6695.85"
+  }
+}

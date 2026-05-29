@@ -1,0 +1,40 @@
+{
+  "doc_name": "X51005663280",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T06:55:59.548169+00:00",
+  "predicted": {
+    "company": "Chili's Grill & Bar KLCC",
+    "date": "30/12/17",
+    "address": "T.A.S Leisure Sdn Bhd (256864-P)",
+    "total": "102.40"
+  },
+  "ground_truth": {
+    "company": "T.A.S LEISURE SDN BHD",
+    "date": "30 DEC 17",
+    "total": "102.40"
+  },
+  "exact_match": {
+    "company": false,
+    "date": false,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 0.1818,
+    "date": 0.6667,
+    "address": 0.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.25,
+  "overall_token_f1": 0.4621,
+  "latency_sec": 2.86,
+  "usage": {
+    "prompt_tokens": 2108,
+    "completion_tokens": 49,
+    "thinking_tokens": null,
+    "total_tokens": 2157
+  },
+  "meta": {},
+  "error": null
+}

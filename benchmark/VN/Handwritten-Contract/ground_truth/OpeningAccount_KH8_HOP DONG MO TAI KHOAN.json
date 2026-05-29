@@ -1,0 +1,16 @@
+{
+  "doc_name": "OpeningAccount_KH8_HOP DONG MO TAI KHOAN",
+  "lang": "VN",
+  "doc_type": "contract",
+  "subtype": "handwritten",
+  "image_path": "img/OpeningAccount_KH8_HOP DONG MO TAI KHOAN.png",
+  "fields": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank)",
+    "party_b": "Nguyên Trần Văn Hải",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": "8",
+    "contract_value": null
+  }
+}

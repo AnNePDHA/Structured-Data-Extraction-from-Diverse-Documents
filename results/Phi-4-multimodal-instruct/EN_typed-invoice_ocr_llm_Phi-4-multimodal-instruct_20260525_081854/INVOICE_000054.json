@@ -1,0 +1,43 @@
+{
+  "doc_name": "INVOICE_000054",
+  "pipeline": "ocr_llm",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:19:13.518685+00:00",
+  "predicted": {
+    "company": "Digital Systems",
+    "date": "2026-03-29",
+    "address": null,
+    "total": "$11907.57"
+  },
+  "ground_truth": {
+    "company": "Digital Systems",
+    "date": "2026-03-29",
+    "address": null,
+    "total": "$11907.57"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 4.963,
+  "usage": {
+    "prompt_tokens": 388,
+    "completion_tokens": 39,
+    "thinking_tokens": null,
+    "total_tokens": 427
+  },
+  "meta": {
+    "ocr_chars": 340
+  },
+  "error": null
+}

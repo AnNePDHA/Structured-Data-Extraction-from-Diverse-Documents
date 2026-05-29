@@ -1,0 +1,49 @@
+{
+  "doc_name": "286.rf.70805e1d828983cf57708be436b28c18",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T07:02:18.494318+00:00",
+  "predicted": {
+    "id_num": "036196012656",
+    "name": "TRẦN THỀ THúY LIỄU",
+    "dob": "12/12/1996",
+    "nationality": "Việt Nam",
+    "origin_place": "Nam Dương, Nam Trực, Nam Định",
+    "expire_date": "12/12/2036"
+  },
+  "ground_truth": {
+    "dob": "12/12/1996",
+    "expire_date": "12/12/2036",
+    "name": "TRẦN THỊ THÚY LIỄU",
+    "nationality": "Việt Nam",
+    "origin_place": "Nam Dương, Nam Trực, Nam Định",
+    "id_num": "036196012656"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": false,
+    "dob": true,
+    "nationality": true,
+    "origin_place": true,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 0.75,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 1.0,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 0.8333,
+  "overall_token_f1": 0.9583,
+  "latency_sec": 4.332,
+  "usage": {
+    "prompt_tokens": 2631,
+    "completion_tokens": 110,
+    "thinking_tokens": null,
+    "total_tokens": 2741
+  },
+  "meta": {},
+  "error": null
+}

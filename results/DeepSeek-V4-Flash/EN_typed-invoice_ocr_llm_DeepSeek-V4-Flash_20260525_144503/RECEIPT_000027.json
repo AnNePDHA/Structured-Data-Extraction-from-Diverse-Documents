@@ -1,0 +1,43 @@
+{
+  "doc_name": "RECEIPT_000027",
+  "pipeline": "ocr_llm",
+  "model": "DeepSeek-V4-Flash",
+  "timestamp": "2026-05-25T14:46:37.320003+00:00",
+  "predicted": {
+    "company": "Imtiaz Super Store",
+    "date": "2026-03-30",
+    "address": "Main University Road, Karachi",
+    "total": "PKR 6169.77"
+  },
+  "ground_truth": {
+    "company": "Imtiaz Super Store",
+    "date": "2026-03-30",
+    "address": "Main University Road, Karachi",
+    "total": "PKR 6169.77"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 6.612,
+  "usage": {
+    "prompt_tokens": 422,
+    "completion_tokens": 50,
+    "thinking_tokens": null,
+    "total_tokens": 472
+  },
+  "meta": {
+    "ocr_chars": 375
+  },
+  "error": null
+}

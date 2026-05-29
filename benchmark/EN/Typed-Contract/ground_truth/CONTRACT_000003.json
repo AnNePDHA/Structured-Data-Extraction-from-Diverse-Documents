@@ -1,0 +1,14 @@
+{
+  "doc_name": "CONTRACT_000003",
+  "lang": "EN",
+  "doc_type": "contract",
+  "subtype": "typed",
+  "image_path": "img/CONTRACT_000003.png",
+  "fields": {
+    "party_a": "FastTrack Solutions",
+    "party_b": "Future Systems",
+    "effective_date": "2026-04-21",
+    "term": "6 months",
+    "governing_law": "Pakistan"
+  }
+}

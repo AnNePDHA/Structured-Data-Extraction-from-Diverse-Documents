@@ -1,0 +1,13 @@
+{
+  "doc_name": "RECEIPT_000011",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/RECEIPT_000011.png",
+  "fields": {
+    "company": "PriceOye",
+    "date": "2026-04-09",
+    "address": "Main Branch, Pakistan",
+    "total": "PKR 540346.59"
+  }
+}

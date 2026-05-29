@@ -1,0 +1,43 @@
+{
+  "doc_name": "X51006311767",
+  "pipeline": "ocr_llm",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T06:58:42.186585+00:00",
+  "predicted": {
+    "company": "TONYMOLY VIVA CITY (TONYMOLY SHOP (95874))",
+    "date": "29/03/2018 20:19:07",
+    "address": "UNIT L1-044B, VIVACITY MEGAMALL, JALAN WAN ALWI, 93350 KUCHING, SARAWAK.",
+    "total": "48.95"
+  },
+  "ground_truth": {
+    "company": "TONYMOLY VIVA CITY",
+    "date": "29/03/2018",
+    "address": "UNIT L1-044B, VIVACITY MEGAMALL, JALAN WAN ALWI, 93350 KUCHING, SARAWAK.",
+    "total": "48.95"
+  },
+  "exact_match": {
+    "company": false,
+    "date": false,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 0.6667,
+    "date": 0.6667,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.8333,
+  "latency_sec": 5.414,
+  "usage": {
+    "prompt_tokens": 566,
+    "completion_tokens": 87,
+    "thinking_tokens": null,
+    "total_tokens": 653
+  },
+  "meta": {
+    "ocr_chars": 725
+  },
+  "error": null
+}

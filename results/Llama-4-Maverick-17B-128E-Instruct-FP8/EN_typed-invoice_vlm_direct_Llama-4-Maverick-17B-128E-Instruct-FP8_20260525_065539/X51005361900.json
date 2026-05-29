@@ -1,0 +1,41 @@
+{
+  "doc_name": "X51005361900",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T06:55:56.686289+00:00",
+  "predicted": {
+    "company": "TEO HENG STATIONERY & BOOKS",
+    "date": "23/01/2018",
+    "address": "NO. 53, JALAN BESAR, 45600 BATANG BERJUNTAI SELANGOR DARUL EHSAN",
+    "total": "18.00"
+  },
+  "ground_truth": {
+    "company": "TEO HENG STATIONERY & BOOKS",
+    "date": "23/01/2018",
+    "address": "NO.53,JALAN BESAR,45600 BATANG BERJUNTAI SELANGOR DARUL EHSAN",
+    "total": "18.00"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.75,
+  "overall_token_f1": 1.0,
+  "latency_sec": 3.24,
+  "usage": {
+    "prompt_tokens": 2543,
+    "completion_tokens": 69,
+    "thinking_tokens": null,
+    "total_tokens": 2612
+  },
+  "meta": {},
+  "error": null
+}

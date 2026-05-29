@@ -1,0 +1,41 @@
+{
+  "doc_name": "RECEIPT_000077",
+  "pipeline": "vlm_direct",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T16:11:52.532605+00:00",
+  "predicted": {
+    "company": "Metro Cash & Carry",
+    "date": "2026-03-26",
+    "address": "Main Branch, Pakistan",
+    "total": "PKR 3154.19"
+  },
+  "ground_truth": {
+    "company": "Metro Cash & Carry",
+    "date": "2026-03-26",
+    "address": "Main Branch, Pakistan",
+    "total": "PKR 3154.19"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 2.366,
+  "usage": {
+    "prompt_tokens": 844,
+    "completion_tokens": 48,
+    "thinking_tokens": null,
+    "total_tokens": 892
+  },
+  "meta": {},
+  "error": null
+}

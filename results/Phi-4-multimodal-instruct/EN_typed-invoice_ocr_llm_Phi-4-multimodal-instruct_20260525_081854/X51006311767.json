@@ -1,0 +1,43 @@
+{
+  "doc_name": "X51006311767",
+  "pipeline": "ocr_llm",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:22:02.477596+00:00",
+  "predicted": {
+    "company": "TONYMOLY VIVA CITY (TONYMOLY SHOP (95874))",
+    "date": "29/03/2018 20:19:07",
+    "address": "UNIT L1-044B, VIVACITY MEGAMALL, JALAN WAN ALWI, 93350 KUCHING, SARAWAK",
+    "total": "48,93"
+  },
+  "ground_truth": {
+    "company": "TONYMOLY VIVA CITY",
+    "date": "29/03/2018",
+    "address": "UNIT L1-044B, VIVACITY MEGAMALL, JALAN WAN ALWI, 93350 KUCHING, SARAWAK.",
+    "total": "48.95"
+  },
+  "exact_match": {
+    "company": false,
+    "date": false,
+    "address": false,
+    "total": false
+  },
+  "token_f1": {
+    "company": 0.6667,
+    "date": 0.6667,
+    "address": 1.0,
+    "total": 0.5
+  },
+  "overall_exact_match": 0.0,
+  "overall_token_f1": 0.7083,
+  "latency_sec": 22.546,
+  "usage": {
+    "prompt_tokens": 559,
+    "completion_tokens": 95,
+    "thinking_tokens": null,
+    "total_tokens": 654
+  },
+  "meta": {
+    "ocr_chars": 725
+  },
+  "error": null
+}

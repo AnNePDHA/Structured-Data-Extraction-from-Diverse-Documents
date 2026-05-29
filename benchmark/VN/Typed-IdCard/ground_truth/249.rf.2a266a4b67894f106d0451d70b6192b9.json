@@ -1,0 +1,15 @@
+{
+  "doc_name": "249.rf.2a266a4b67894f106d0451d70b6192b9",
+  "lang": "VN",
+  "doc_type": "id_card",
+  "subtype": "typed",
+  "image_path": "img/249.rf.2a266a4b67894f106d0451d70b6192b9.jpg",
+  "fields": {
+    "dob": "10/05/2005",
+    "expire_date": "10/05/2030",
+    "name": "TRẦN VĂN KHOA",
+    "nationality": "Việt Nam",
+    "origin_place": "Bình An, Thăng Bình, Quảng Nam",
+    "id_num": "049205001642"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "doc_name": "NGUYEN THI HOA MAI_HOP DONG CHO VAY",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T13:53:09.536344+00:00",
+  "predicted": {
+    "party_a": "BÀn Chô VÀy",
+    "party_b": "Ng᮳ h᮱ng TMCP V᮳t Nam Th᮱nh V᮱y᮹g - Chi n᮱nh/Phông Giao d᮱ch",
+    "effective_date": "06/05/2021",
+    "term": "2 Lang Ha",
+    "governing_law": "Phåp lü᮱᮹᮱᮹᮱᮹",
+    "contract_number": "Sº 1122334451 do Bº Cong An.c᮱p ng᮱y 06/05/2021",
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng – Chi nhánh/Phòng Giao dịch",
+    "party_b": "NGUYỄN THỊ HOA MAI",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  },
+  "exact_match": {
+    "party_a": false,
+    "party_b": false,
+    "effective_date": false,
+    "term": false,
+    "governing_law": false,
+    "contract_number": false,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 0.0,
+    "party_b": 0.0,
+    "effective_date": 0.0,
+    "term": 0.0,
+    "governing_law": 0.0,
+    "contract_number": 0.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.1429,
+  "overall_token_f1": 0.1429,
+  "latency_sec": 12.817,
+  "usage": {
+    "prompt_tokens": 2289,
+    "completion_tokens": 200,
+    "thinking_tokens": null,
+    "total_tokens": 2489
+  },
+  "meta": {},
+  "error": null
+}

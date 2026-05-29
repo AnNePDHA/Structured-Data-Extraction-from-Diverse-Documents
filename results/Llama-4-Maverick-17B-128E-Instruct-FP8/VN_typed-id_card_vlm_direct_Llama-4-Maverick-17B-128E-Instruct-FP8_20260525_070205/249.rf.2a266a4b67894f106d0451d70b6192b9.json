@@ -1,0 +1,49 @@
+{
+  "doc_name": "249.rf.2a266a4b67894f106d0451d70b6192b9",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T07:02:12.401118+00:00",
+  "predicted": {
+    "id_num": "049205001642",
+    "name": "TRẦN VĂN KHOA",
+    "dob": "10/05/2005",
+    "nationality": "Việt Nam",
+    "origin_place": "Bình An, Thăng Bình, Quảng Nam",
+    "expire_date": "10/05/2030"
+  },
+  "ground_truth": {
+    "dob": "10/05/2005",
+    "expire_date": "10/05/2030",
+    "name": "TRẦN VĂN KHOA",
+    "nationality": "Việt Nam",
+    "origin_place": "Bình An, Thăng Bình, Quảng Nam",
+    "id_num": "049205001642"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": true,
+    "dob": true,
+    "nationality": true,
+    "origin_place": true,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 1.0,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 1.0,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 1.73,
+  "usage": {
+    "prompt_tokens": 1036,
+    "completion_tokens": 71,
+    "thinking_tokens": null,
+    "total_tokens": 1107
+  },
+  "meta": {},
+  "error": null
+}

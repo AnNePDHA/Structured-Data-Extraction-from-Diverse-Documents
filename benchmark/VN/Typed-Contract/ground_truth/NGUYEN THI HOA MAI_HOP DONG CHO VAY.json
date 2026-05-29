@@ -1,0 +1,16 @@
+{
+  "doc_name": "NGUYEN THI HOA MAI_HOP DONG CHO VAY",
+  "lang": "VN",
+  "doc_type": "contract",
+  "subtype": "typed",
+  "image_path": "img/NGUYEN THI HOA MAI_HOP DONG CHO VAY.png",
+  "fields": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng – Chi nhánh/Phòng Giao dịch",
+    "party_b": "NGUYỄN THỊ HOA MAI",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  }
+}

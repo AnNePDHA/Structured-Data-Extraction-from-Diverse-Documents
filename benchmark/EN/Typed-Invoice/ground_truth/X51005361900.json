@@ -1,0 +1,13 @@
+{
+  "doc_name": "X51005361900",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/X51005361900.jpg",
+  "fields": {
+    "company": "TEO HENG STATIONERY & BOOKS",
+    "date": "23/01/2018",
+    "address": "NO.53,JALAN BESAR,45600 BATANG BERJUNTAI SELANGOR DARUL EHSAN",
+    "total": "18.00"
+  }
+}

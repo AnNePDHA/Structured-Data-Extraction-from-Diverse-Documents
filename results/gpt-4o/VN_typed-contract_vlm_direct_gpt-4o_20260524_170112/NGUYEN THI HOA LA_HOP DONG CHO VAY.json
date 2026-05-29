@@ -1,0 +1,53 @@
+{
+  "doc_name": "NGUYEN THI HOA LA_HOP DONG CHO VAY",
+  "pipeline": "vlm_direct",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T17:01:25.023027+00:00",
+  "predicted": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng - Chi nhánh/Phòng Giao dịch",
+    "party_b": "Ông/Bà NGUYỄN THỊ HOA LÁ",
+    "effective_date": "16/05/2021",
+    "term": null,
+    "governing_law": "Pháp luật nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+    "contract_number": "MB03. PL01.HDM-TD.CV.SL/14",
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng – Chi nhánh/Phòng Giao dịch",
+    "party_b": "NGUYỄN THỊ HOA LÁ",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  },
+  "exact_match": {
+    "party_a": false,
+    "party_b": false,
+    "effective_date": false,
+    "term": true,
+    "governing_law": false,
+    "contract_number": false,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 0.8,
+    "effective_date": 0.0,
+    "term": 1.0,
+    "governing_law": 0.0,
+    "contract_number": 0.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.2857,
+  "overall_token_f1": 0.5429,
+  "latency_sec": 5.961,
+  "usage": {
+    "prompt_tokens": 1409,
+    "completion_tokens": 127,
+    "thinking_tokens": null,
+    "total_tokens": 1536
+  },
+  "meta": {},
+  "error": null
+}

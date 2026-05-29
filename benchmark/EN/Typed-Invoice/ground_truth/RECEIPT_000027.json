@@ -1,0 +1,13 @@
+{
+  "doc_name": "RECEIPT_000027",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/RECEIPT_000027.png",
+  "fields": {
+    "company": "Imtiaz Super Store",
+    "date": "2026-03-30",
+    "address": "Main University Road, Karachi",
+    "total": "PKR 6169.77"
+  }
+}

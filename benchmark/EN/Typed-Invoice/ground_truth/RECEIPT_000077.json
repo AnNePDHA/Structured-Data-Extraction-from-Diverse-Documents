@@ -1,0 +1,13 @@
+{
+  "doc_name": "RECEIPT_000077",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/RECEIPT_000077.png",
+  "fields": {
+    "company": "Metro Cash & Carry",
+    "date": "2026-03-26",
+    "address": "Main Branch, Pakistan",
+    "total": "PKR 3154.19"
+  }
+}

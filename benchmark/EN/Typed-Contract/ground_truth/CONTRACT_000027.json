@@ -1,0 +1,14 @@
+{
+  "doc_name": "CONTRACT_000027",
+  "lang": "EN",
+  "doc_type": "contract",
+  "subtype": "typed",
+  "image_path": "img/CONTRACT_000027.png",
+  "fields": {
+    "party_a": "SecureTech",
+    "party_b": "Future Systems",
+    "effective_date": "2026-03-17",
+    "term": "24 months",
+    "governing_law": "Pakistan"
+  }
+}

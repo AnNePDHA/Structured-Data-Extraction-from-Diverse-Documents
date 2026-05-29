@@ -1,0 +1,53 @@
+{
+  "doc_name": "CONTRACT_000014",
+  "pipeline": "ocr_llm",
+  "model": "gpt-5.2-chat",
+  "timestamp": "2026-05-25T06:11:05.889807+00:00",
+  "predicted": {
+    "party_a": "FastTrack Solutions",
+    "party_b": "Future Systems",
+    "effective_date": "2026-03-19",
+    "term": "12 months",
+    "governing_law": "This agreement is governed by the laws of Pakistan.",
+    "contract_number": null,
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "FastTrack Solutions",
+    "party_b": "Future Systems",
+    "effective_date": "2026-03-19",
+    "term": "12 months",
+    "governing_law": "Pakistan"
+  },
+  "exact_match": {
+    "party_a": true,
+    "party_b": true,
+    "effective_date": true,
+    "term": true,
+    "governing_law": false,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 1.0,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 0.2,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.8571,
+  "overall_token_f1": 0.8857,
+  "latency_sec": 6.538,
+  "usage": {
+    "prompt_tokens": 656,
+    "completion_tokens": 213,
+    "thinking_tokens": null,
+    "total_tokens": 869
+  },
+  "meta": {
+    "ocr_chars": 531
+  },
+  "error": null
+}

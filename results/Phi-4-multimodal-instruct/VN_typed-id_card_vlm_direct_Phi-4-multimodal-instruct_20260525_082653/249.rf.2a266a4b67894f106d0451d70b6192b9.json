@@ -1,0 +1,49 @@
+{
+  "doc_name": "249.rf.2a266a4b67894f106d0451d70b6192b9",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:27:16.609365+00:00",
+  "predicted": {
+    "id_num": "049205001642",
+    "name": "TRÄN VÁN KHÀO",
+    "dob": "10/05/2005",
+    "nationality": "Viet Nam",
+    "origin_place": "BửdẪ An, ThẪ Binh, QuẪ Ngam",
+    "expire_date": "10/05/2030"
+  },
+  "ground_truth": {
+    "dob": "10/05/2005",
+    "expire_date": "10/05/2030",
+    "name": "TRẦN VĂN KHOA",
+    "nationality": "Việt Nam",
+    "origin_place": "Bình An, Thăng Bình, Quảng Nam",
+    "id_num": "049205001642"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": false,
+    "dob": true,
+    "nationality": false,
+    "origin_place": false,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 0.0,
+    "dob": 1.0,
+    "nationality": 0.5,
+    "origin_place": 0.1667,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.6111,
+  "latency_sec": 6.444,
+  "usage": {
+    "prompt_tokens": 1009,
+    "completion_tokens": 98,
+    "thinking_tokens": null,
+    "total_tokens": 1107
+  },
+  "meta": {},
+  "error": null
+}

@@ -1,0 +1,43 @@
+{
+  "doc_name": "X51005361900",
+  "pipeline": "ocr_llm",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:21:17.833037+00:00",
+  "predicted": {
+    "company": "TED HENG STATIONERY & BOOKS (001451637-M)",
+    "date": "23/01/2018",
+    "address": "JALAN BESAR, 45600 BATANG BERJUNTAI SELANGOR DARUL EHSAN",
+    "total": "18.00"
+  },
+  "ground_truth": {
+    "company": "TEO HENG STATIONERY & BOOKS",
+    "date": "23/01/2018",
+    "address": "NO.53,JALAN BESAR,45600 BATANG BERJUNTAI SELANGOR DARUL EHSAN",
+    "total": "18.00"
+  },
+  "exact_match": {
+    "company": false,
+    "date": true,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 0.6,
+    "date": 1.0,
+    "address": 0.8889,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.8722,
+  "latency_sec": 7.438,
+  "usage": {
+    "prompt_tokens": 555,
+    "completion_tokens": 78,
+    "thinking_tokens": null,
+    "total_tokens": 633
+  },
+  "meta": {
+    "ocr_chars": 726
+  },
+  "error": null
+}

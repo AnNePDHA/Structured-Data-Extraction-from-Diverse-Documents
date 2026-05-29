@@ -1,0 +1,55 @@
+{
+  "doc_name": "NGUYEN THI HOA DAO_HOP DONG CHO VAY",
+  "pipeline": "ocr_llm",
+  "model": "DeepSeek-V4-Flash",
+  "timestamp": "2026-05-25T15:43:17.290006+00:00",
+  "predicted": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng - Chi nhánh/Phòng Giao dịch ..",
+    "party_b": "NGUYỄN THỊ HOA ĐÀO",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": "...",
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng – Chi nhánh/Phòng Giao dịch",
+    "party_b": "NGUYỄN THỊ HOA ĐÀO",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  },
+  "exact_match": {
+    "party_a": false,
+    "party_b": true,
+    "effective_date": true,
+    "term": true,
+    "governing_law": true,
+    "contract_number": false,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 1.0,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 1.0,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.7143,
+  "overall_token_f1": 1.0,
+  "latency_sec": 8.647,
+  "usage": {
+    "prompt_tokens": 1378,
+    "completion_tokens": 95,
+    "thinking_tokens": null,
+    "total_tokens": 1473
+  },
+  "meta": {
+    "ocr_chars": 1782
+  },
+  "error": null
+}

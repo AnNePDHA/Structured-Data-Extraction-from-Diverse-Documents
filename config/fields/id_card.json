@@ -1,0 +1,25 @@
+{
+  "id_num": {
+    "description": "Citizen ID / card number (số CCCD hoặc số định danh cá nhân)",
+    "format": "keep all digits exactly as printed, including any spaces or separators"
+  },
+  "name": {
+    "description": "Full name of the card holder (họ và tên)",
+    "format": "keep the original letter case and diacritics"
+  },
+  "dob": {
+    "description": "Date of birth (ngày sinh)",
+    "format": "keep the original format as printed on the card"
+  },
+  "nationality": {
+    "description": "Nationality of the card holder (quốc tịch)"
+  },
+  "origin_place": {
+    "description": "Place of origin / hometown (quê quán / nơi đăng ký khai sinh). VN CCCD: the field labelled 'Quê quán' or 'Nơi đăng ký khai sinh'.",
+    "format": "keep the address exactly as printed"
+  },
+  "expire_date": {
+    "description": "Card expiry date / date of expiry (có giá trị đến / ngày hết hạn)",
+    "format": "keep the original format as printed on the card"
+  }
+}

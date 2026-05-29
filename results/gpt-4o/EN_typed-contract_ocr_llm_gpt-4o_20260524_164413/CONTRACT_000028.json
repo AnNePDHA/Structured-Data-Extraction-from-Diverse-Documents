@@ -1,0 +1,53 @@
+{
+  "doc_name": "CONTRACT_000028",
+  "pipeline": "ocr_llm",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T16:45:20.110284+00:00",
+  "predicted": {
+    "party_a": "SecureTech",
+    "party_b": "Al-Madina Traders",
+    "effective_date": "2026-04-08",
+    "term": "24 months",
+    "governing_law": "This agreement is governed by the laws of Pakistan.",
+    "contract_number": null,
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "SecureTech",
+    "party_b": "Al-Madina Traders",
+    "effective_date": "2026-04-08",
+    "term": "24 months",
+    "governing_law": "Pakistan"
+  },
+  "exact_match": {
+    "party_a": true,
+    "party_b": true,
+    "effective_date": true,
+    "term": true,
+    "governing_law": false,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 1.0,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 0.2,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.8571,
+  "overall_token_f1": 0.8857,
+  "latency_sec": 3.61,
+  "usage": {
+    "prompt_tokens": 659,
+    "completion_tokens": 77,
+    "thinking_tokens": null,
+    "total_tokens": 736
+  },
+  "meta": {
+    "ocr_chars": 519
+  },
+  "error": null
+}

@@ -1,0 +1,42 @@
+{
+  "doc_name": "X51005663280",
+  "pipeline": "ocr_llm",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:21:24.191090+00:00",
+  "predicted": {
+    "company": "Chili's Chili's Grill & Bar KLCC T.A.S Leisure Sdn Bhd",
+    "date": "30/12/17",
+    "address": null,
+    "total": "102.40"
+  },
+  "ground_truth": {
+    "company": "T.A.S LEISURE SDN BHD",
+    "date": "30 DEC 17",
+    "total": "102.40"
+  },
+  "exact_match": {
+    "company": false,
+    "date": false,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 0.6316,
+    "date": 0.6667,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.8246,
+  "latency_sec": 6.357,
+  "usage": {
+    "prompt_tokens": 553,
+    "completion_tokens": 57,
+    "thinking_tokens": null,
+    "total_tokens": 610
+  },
+  "meta": {
+    "ocr_chars": 789
+  },
+  "error": null
+}

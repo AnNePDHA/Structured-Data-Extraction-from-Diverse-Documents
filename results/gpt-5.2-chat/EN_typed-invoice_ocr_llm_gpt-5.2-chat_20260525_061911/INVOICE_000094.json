@@ -1,0 +1,43 @@
+{
+  "doc_name": "INVOICE_000094",
+  "pipeline": "ocr_llm",
+  "model": "gpt-5.2-chat",
+  "timestamp": "2026-05-25T06:20:19.995960+00:00",
+  "predicted": {
+    "company": "Global Traders",
+    "date": "2026-04-08",
+    "address": null,
+    "total": "$6695.85"
+  },
+  "ground_truth": {
+    "company": "Global Traders",
+    "date": "2026-04-08",
+    "address": null,
+    "total": "$6695.85"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 32.854,
+  "usage": {
+    "prompt_tokens": 379,
+    "completion_tokens": 176,
+    "thinking_tokens": null,
+    "total_tokens": 555
+  },
+  "meta": {
+    "ocr_chars": 314
+  },
+  "error": null
+}

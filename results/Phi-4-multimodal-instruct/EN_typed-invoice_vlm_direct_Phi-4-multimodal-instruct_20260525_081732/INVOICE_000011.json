@@ -1,0 +1,41 @@
+{
+  "doc_name": "INVOICE_000011",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:17:40.463373+00:00",
+  "predicted": {
+    "company": "Digital Systems",
+    "date": "2026-04-14",
+    "address": "Fatima Shah",
+    "total": "$8079.52"
+  },
+  "ground_truth": {
+    "company": "Digital Systems",
+    "date": "2026-04-14",
+    "address": null,
+    "total": "$8079.52"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 0.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.75,
+  "overall_token_f1": 0.75,
+  "latency_sec": 3.14,
+  "usage": {
+    "prompt_tokens": 3495,
+    "completion_tokens": 36,
+    "thinking_tokens": null,
+    "total_tokens": 3531
+  },
+  "meta": {},
+  "error": null
+}

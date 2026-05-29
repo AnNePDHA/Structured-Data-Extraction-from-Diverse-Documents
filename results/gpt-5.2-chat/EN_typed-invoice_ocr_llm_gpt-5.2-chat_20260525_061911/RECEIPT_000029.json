@@ -1,0 +1,43 @@
+{
+  "doc_name": "RECEIPT_000029",
+  "pipeline": "ocr_llm",
+  "model": "gpt-5.2-chat",
+  "timestamp": "2026-05-25T06:20:48.537886+00:00",
+  "predicted": {
+    "company": "KFC Pakistan Main Branch, Pakistan",
+    "date": "2026-04-12",
+    "address": null,
+    "total": "PKR 14830.77"
+  },
+  "ground_truth": {
+    "company": "KFC Pakistan",
+    "date": "2026-04-12",
+    "address": "Main Branch, Pakistan",
+    "total": "PKR 14830.77"
+  },
+  "exact_match": {
+    "company": false,
+    "date": true,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 0.5714,
+    "date": 1.0,
+    "address": 0.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.6429,
+  "latency_sec": 7.6,
+  "usage": {
+    "prompt_tokens": 429,
+    "completion_tokens": 312,
+    "thinking_tokens": null,
+    "total_tokens": 741
+  },
+  "meta": {
+    "ocr_chars": 398
+  },
+  "error": null
+}

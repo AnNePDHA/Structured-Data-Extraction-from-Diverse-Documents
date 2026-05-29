@@ -1,0 +1,53 @@
+{
+  "doc_name": "CONTRACT_000011",
+  "pipeline": "ocr_llm",
+  "model": "gpt-5.2-chat",
+  "timestamp": "2026-05-25T06:10:53.531123+00:00",
+  "predicted": {
+    "party_a": "Secure Tech",
+    "party_b": "Prime Consulting",
+    "effective_date": "2026-05-02",
+    "term": "6 months.",
+    "governing_law": "This agreement is governed by the laws of Pakistan.",
+    "contract_number": null,
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "SecureTech",
+    "party_b": "Prime Consulting",
+    "effective_date": "2026-05-02",
+    "term": "6 months",
+    "governing_law": "Pakistan"
+  },
+  "exact_match": {
+    "party_a": false,
+    "party_b": true,
+    "effective_date": true,
+    "term": false,
+    "governing_law": false,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 0.0,
+    "party_b": 1.0,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 0.2,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.5714,
+  "overall_token_f1": 0.7429,
+  "latency_sec": 6.603,
+  "usage": {
+    "prompt_tokens": 653,
+    "completion_tokens": 276,
+    "thinking_tokens": null,
+    "total_tokens": 929
+  },
+  "meta": {
+    "ocr_chars": 517
+  },
+  "error": null
+}

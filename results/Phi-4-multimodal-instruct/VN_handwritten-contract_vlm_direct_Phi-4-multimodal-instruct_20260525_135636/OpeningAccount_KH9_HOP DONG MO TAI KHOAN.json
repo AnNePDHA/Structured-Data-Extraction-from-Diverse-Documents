@@ -1,0 +1,53 @@
+{
+  "doc_name": "OpeningAccount_KH9_HOP DONG MO TAI KHOAN",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T14:00:53.570524+00:00",
+  "predicted": {
+    "party_a": "Ngån hàng TMCV VÉt Nam ThṈng Vôyông (VᱚBank)",
+    "party_b": "Ngån hàng/Phông gia dôch",
+    "effective_date": "9",
+    "term": "Nhàn",
+    "governing_law": "Phåp lüàn",
+    "contract_number": "MB01-PL5HDM-TN-NA/04",
+    "contract_value": "Nhàn"
+  },
+  "ground_truth": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng (VPBank)",
+    "party_b": "Nguyễn Trần Văn Sương",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": "9",
+    "contract_value": null
+  },
+  "exact_match": {
+    "party_a": false,
+    "party_b": false,
+    "effective_date": false,
+    "term": false,
+    "governing_law": false,
+    "contract_number": false,
+    "contract_value": false
+  },
+  "token_f1": {
+    "party_a": 0.25,
+    "party_b": 0.0,
+    "effective_date": 0.0,
+    "term": 0.0,
+    "governing_law": 0.0,
+    "contract_number": 0.0,
+    "contract_value": 0.0
+  },
+  "overall_exact_match": 0.0,
+  "overall_token_f1": 0.0357,
+  "latency_sec": 10.492,
+  "usage": {
+    "prompt_tokens": 2289,
+    "completion_tokens": 159,
+    "thinking_tokens": null,
+    "total_tokens": 2448
+  },
+  "meta": {},
+  "error": null
+}

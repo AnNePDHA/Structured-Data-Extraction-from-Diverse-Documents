@@ -1,0 +1,41 @@
+{
+  "doc_name": "INVOICE_000094",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:17:55.456259+00:00",
+  "predicted": {
+    "company": "Global Traders",
+    "date": "2026-04-08",
+    "address": "Omar Farooq",
+    "total": "$6695.85"
+  },
+  "ground_truth": {
+    "company": "Global Traders",
+    "date": "2026-04-08",
+    "address": null,
+    "total": "$6695.85"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 0.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.75,
+  "overall_token_f1": 0.75,
+  "latency_sec": 2.959,
+  "usage": {
+    "prompt_tokens": 3495,
+    "completion_tokens": 37,
+    "thinking_tokens": null,
+    "total_tokens": 3532
+  },
+  "meta": {},
+  "error": null
+}

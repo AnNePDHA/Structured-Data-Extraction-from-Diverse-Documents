@@ -1,0 +1,53 @@
+{
+  "doc_name": "NGUYEN THI HOA MAI_HOP DONG CHO VAY",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T07:00:48.258632+00:00",
+  "predicted": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng - Chi nhánh/Phòng Giao dịch",
+    "party_b": "Nguyễn Thị Hoa Mai",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng – Chi nhánh/Phòng Giao dịch",
+    "party_b": "NGUYỄN THỊ HOA MAI",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  },
+  "exact_match": {
+    "party_a": false,
+    "party_b": true,
+    "effective_date": true,
+    "term": true,
+    "governing_law": true,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 1.0,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 1.0,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.8571,
+  "overall_token_f1": 1.0,
+  "latency_sec": 2.33,
+  "usage": {
+    "prompt_tokens": 2830,
+    "completion_tokens": 118,
+    "thinking_tokens": null,
+    "total_tokens": 2948
+  },
+  "meta": {},
+  "error": null
+}

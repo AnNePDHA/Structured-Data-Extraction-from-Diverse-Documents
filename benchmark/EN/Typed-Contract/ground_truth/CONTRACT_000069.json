@@ -1,0 +1,14 @@
+{
+  "doc_name": "CONTRACT_000069",
+  "lang": "EN",
+  "doc_type": "contract",
+  "subtype": "typed",
+  "image_path": "img/CONTRACT_000069.png",
+  "fields": {
+    "party_a": "SecureTech",
+    "party_b": "Prime Consulting",
+    "effective_date": "2026-03-26",
+    "term": "6 months",
+    "governing_law": "Pakistan"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "doc_name": "272.rf.e6673726b819f3bc58a5d89193e66eab",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:27:22.887539+00:00",
+  "predicted": {
+    "id_num": "027093002309",
+    "name": "NGUYÀN HÜU BÀO",
+    "dob": "03/03/1993",
+    "nationality": "Viet Nam",
+    "origin_place": "Tam Son, Thệ Xu Tô Son, BẢc Ninh",
+    "expire_date": "03/03/2033"
+  },
+  "ground_truth": {
+    "dob": "03/03/1993",
+    "expire_date": "03/03/2033",
+    "name": "NGUYỄN HỮU BẢO",
+    "nationality": "Việt Nam",
+    "origin_place": "Tam Sơn, Thị xã Từ Sơn, Bắc Ninh",
+    "id_num": "027093002309"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": false,
+    "dob": true,
+    "nationality": false,
+    "origin_place": false,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 0.0,
+    "dob": 1.0,
+    "nationality": 0.5,
+    "origin_place": 0.25,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.625,
+  "latency_sec": 6.277,
+  "usage": {
+    "prompt_tokens": 1009,
+    "completion_tokens": 96,
+    "thinking_tokens": null,
+    "total_tokens": 1105
+  },
+  "meta": {},
+  "error": null
+}

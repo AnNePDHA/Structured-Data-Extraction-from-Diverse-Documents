@@ -1,0 +1,13 @@
+{
+  "doc_name": "X51005676538",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/X51005676538.jpg",
+  "fields": {
+    "company": "SYARIKAT PERNIAGAAN GIN KEE",
+    "date": "04/01/2018",
+    "address": "NO 290, JALAN AIR PANAS, SETAPAK, 53200, KUALA LUMPUR.",
+    "total": "44.73"
+  }
+}

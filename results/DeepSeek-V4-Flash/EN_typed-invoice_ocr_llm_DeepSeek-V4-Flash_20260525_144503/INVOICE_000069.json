@@ -1,0 +1,43 @@
+{
+  "doc_name": "INVOICE_000069",
+  "pipeline": "ocr_llm",
+  "model": "DeepSeek-V4-Flash",
+  "timestamp": "2026-05-25T14:45:35.337701+00:00",
+  "predicted": {
+    "company": "ABC Corp",
+    "date": "2026-04-23",
+    "address": null,
+    "total": "$10210.79"
+  },
+  "ground_truth": {
+    "company": "ABC Corp",
+    "date": "2026-04-23",
+    "address": null,
+    "total": "$10210.79"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 8.373,
+  "usage": {
+    "prompt_tokens": 384,
+    "completion_tokens": 39,
+    "thinking_tokens": null,
+    "total_tokens": 423
+  },
+  "meta": {
+    "ocr_chars": 311
+  },
+  "error": null
+}

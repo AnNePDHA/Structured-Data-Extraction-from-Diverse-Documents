@@ -1,0 +1,13 @@
+{
+  "doc_name": "X51006414392",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/X51006414392.jpg",
+  "fields": {
+    "company": "DI HUAN YA RESTAURANT",
+    "date": "07/04/2018",
+    "address": "5,JALAN PERMAS 10/5, BANDAR BARU PERMAS JAYA, 81750 JOHOR BAHRU,JOHOR",
+    "total": "35.00"
+  }
+}

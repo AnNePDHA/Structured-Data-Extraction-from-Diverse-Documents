@@ -1,0 +1,42 @@
+{
+  "doc_name": "X51005663280",
+  "pipeline": "ocr_llm",
+  "model": "DeepSeek-V4-Flash",
+  "timestamp": "2026-05-25T14:47:35.050355+00:00",
+  "predicted": {
+    "company": "Chili's Grill & Bar KLCC T.A.S Leisure Sdn Bhd (256864-P)",
+    "date": "30 Dec 17 18:40:57",
+    "address": null,
+    "total": "102.40"
+  },
+  "ground_truth": {
+    "company": "T.A.S LEISURE SDN BHD",
+    "date": "30 DEC 17",
+    "total": "102.40"
+  },
+  "exact_match": {
+    "company": false,
+    "date": false,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 0.6316,
+    "date": 0.6667,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.8246,
+  "latency_sec": 4.276,
+  "usage": {
+    "prompt_tokens": 572,
+    "completion_tokens": 60,
+    "thinking_tokens": null,
+    "total_tokens": 632
+  },
+  "meta": {
+    "ocr_chars": 789
+  },
+  "error": null
+}

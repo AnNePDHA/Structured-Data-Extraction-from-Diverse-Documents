@@ -1,0 +1,13 @@
+{
+  "doc_name": "RECEIPT_000029",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/RECEIPT_000029.png",
+  "fields": {
+    "company": "KFC Pakistan",
+    "date": "2026-04-12",
+    "address": "Main Branch, Pakistan",
+    "total": "PKR 14830.77"
+  }
+}

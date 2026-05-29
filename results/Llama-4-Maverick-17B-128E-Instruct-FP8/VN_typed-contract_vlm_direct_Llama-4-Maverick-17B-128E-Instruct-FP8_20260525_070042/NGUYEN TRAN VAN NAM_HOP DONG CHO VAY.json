@@ -1,0 +1,53 @@
+{
+  "doc_name": "NGUYEN TRAN VAN NAM_HOP DONG CHO VAY",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T07:00:52.535009+00:00",
+  "predicted": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng - Chi nhánh/Phòng Giao dịch",
+    "party_b": "Nguyễn Trấn Vân Nam",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  },
+  "ground_truth": {
+    "party_a": "Ngân hàng TMCP Việt Nam Thịnh Vượng – Chi nhánh/Phòng Giao dịch",
+    "party_b": "NGUYỄN TRẦN VĂN NAM",
+    "effective_date": null,
+    "term": null,
+    "governing_law": null,
+    "contract_number": null,
+    "contract_value": null
+  },
+  "exact_match": {
+    "party_a": false,
+    "party_b": false,
+    "effective_date": true,
+    "term": true,
+    "governing_law": true,
+    "contract_number": true,
+    "contract_value": true
+  },
+  "token_f1": {
+    "party_a": 1.0,
+    "party_b": 0.5,
+    "effective_date": 1.0,
+    "term": 1.0,
+    "governing_law": 1.0,
+    "contract_number": 1.0,
+    "contract_value": 1.0
+  },
+  "overall_exact_match": 0.7143,
+  "overall_token_f1": 0.9286,
+  "latency_sec": 2.117,
+  "usage": {
+    "prompt_tokens": 2830,
+    "completion_tokens": 124,
+    "thinking_tokens": null,
+    "total_tokens": 2954
+  },
+  "meta": {},
+  "error": null
+}

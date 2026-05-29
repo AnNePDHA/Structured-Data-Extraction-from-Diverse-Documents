@@ -1,0 +1,49 @@
+{
+  "doc_name": "12.rf.e73a5bc7f16605bdbb1c80a67a25bd80",
+  "pipeline": "vlm_direct",
+  "model": "Llama-4-Maverick-17B-128E-Instruct-FP8",
+  "timestamp": "2026-05-25T07:02:08.926599+00:00",
+  "predicted": {
+    "id_num": "049300009355",
+    "name": "DINH THỊ TÚ TRANG",
+    "dob": "14/05/2000",
+    "nationality": "Việt Nam",
+    "origin_place": "Tam Quang, Núi Thành, Quảng Nam",
+    "expire_date": "14/05/2025"
+  },
+  "ground_truth": {
+    "dob": "14/05/2000",
+    "expire_date": "14/05/2025",
+    "name": "ĐINH THỊ TÚ TRANG",
+    "nationality": "Việt Nam",
+    "origin_place": "Tam Quang, Núi Thành, Quảng Nam",
+    "id_num": "049300009355"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": false,
+    "dob": true,
+    "nationality": true,
+    "origin_place": true,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 0.75,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 1.0,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 0.8333,
+  "overall_token_f1": 0.9583,
+  "latency_sec": 3.704,
+  "usage": {
+    "prompt_tokens": 2631,
+    "completion_tokens": 88,
+    "thinking_tokens": null,
+    "total_tokens": 2719
+  },
+  "meta": {},
+  "error": null
+}

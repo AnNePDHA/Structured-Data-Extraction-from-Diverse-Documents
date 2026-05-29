@@ -1,0 +1,49 @@
+{
+  "doc_name": "NGUYEN TRAN VAN NAM_CCCD",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:28:03.937818+00:00",
+  "predicted": {
+    "id_num": null,
+    "name": null,
+    "dob": null,
+    "nationality": null,
+    "origin_place": null,
+    "expire_date": null
+  },
+  "ground_truth": {
+    "dob": "10/12/1990",
+    "expire_date": "18/10/2000",
+    "name": "NGUYỄN TRẦN VĂN NAM",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "id_num": "001122334454"
+  },
+  "exact_match": {
+    "id_num": false,
+    "name": false,
+    "dob": false,
+    "nationality": false,
+    "origin_place": false,
+    "expire_date": false
+  },
+  "token_f1": {
+    "id_num": 0.0,
+    "name": 0.0,
+    "dob": 0.0,
+    "nationality": 0.0,
+    "origin_place": 0.0,
+    "expire_date": 0.0
+  },
+  "overall_exact_match": 0.0,
+  "overall_token_f1": 0.0,
+  "latency_sec": 6.624,
+  "usage": {
+    "prompt_tokens": 2095,
+    "completion_tokens": 92,
+    "thinking_tokens": null,
+    "total_tokens": 2187
+  },
+  "meta": {},
+  "error": null
+}

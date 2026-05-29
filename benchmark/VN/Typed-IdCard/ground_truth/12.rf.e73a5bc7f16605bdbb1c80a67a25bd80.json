@@ -1,0 +1,15 @@
+{
+  "doc_name": "12.rf.e73a5bc7f16605bdbb1c80a67a25bd80",
+  "lang": "VN",
+  "doc_type": "id_card",
+  "subtype": "typed",
+  "image_path": "img/12.rf.e73a5bc7f16605bdbb1c80a67a25bd80.jpg",
+  "fields": {
+    "dob": "14/05/2000",
+    "expire_date": "14/05/2025",
+    "name": "ĐINH THỊ TÚ TRANG",
+    "nationality": "Việt Nam",
+    "origin_place": "Tam Quang, Núi Thành, Quảng Nam",
+    "id_num": "049300009355"
+  }
+}

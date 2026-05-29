@@ -1,0 +1,13 @@
+{
+  "doc_name": "RECEIPT_000003",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/RECEIPT_000003.png",
+  "fields": {
+    "company": "Khaadi",
+    "date": "2026-03-28",
+    "address": "Dolmen Mall, Karachi",
+    "total": "PKR 37018.17"
+  }
+}

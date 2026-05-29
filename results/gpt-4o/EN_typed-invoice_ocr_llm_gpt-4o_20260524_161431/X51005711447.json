@@ -1,0 +1,43 @@
+{
+  "doc_name": "X51005711447",
+  "pipeline": "ocr_llm",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T16:16:56.930556+00:00",
+  "predicted": {
+    "company": "RESTORAN WAN SHENG",
+    "date": "14-03-2018 10:22:59",
+    "address": "No.2, Jalan Temenggung 19/9, Seksyen 9, Bandar Mahkota Cheras, 43200 Cheras, Selangor",
+    "total": "2.30"
+  },
+  "ground_truth": {
+    "company": "RESTORAN WAN SHENG",
+    "date": "14-03-2018",
+    "address": "NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+    "total": "2.30"
+  },
+  "exact_match": {
+    "company": true,
+    "date": false,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 0.6667,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.75,
+  "overall_token_f1": 0.9167,
+  "latency_sec": 3.49,
+  "usage": {
+    "prompt_tokens": 443,
+    "completion_tokens": 83,
+    "thinking_tokens": null,
+    "total_tokens": 526
+  },
+  "meta": {
+    "ocr_chars": 477
+  },
+  "error": null
+}

@@ -1,0 +1,13 @@
+{
+  "doc_name": "INVOICE_000069",
+  "lang": "EN",
+  "doc_type": "invoice",
+  "subtype": "typed",
+  "image_path": "img/INVOICE_000069.png",
+  "fields": {
+    "company": "ABC Corp",
+    "date": "2026-04-23",
+    "address": null,
+    "total": "$10210.79"
+  }
+}

@@ -1,0 +1,10 @@
+﻿model,pipeline,n_docs,exact_match,token_f1,latency_sec,cost_per_1000_usd,hallucination,schema_compliance
+Llama-4-Maverick,VLM Direct,60,0.836,0.923,1.76,0.91,0.026,1.0
+GPT-4o,VLM Direct,60,0.824,0.899,3.95,3.63,0.063,1.0
+GPT-5.2,VLM Direct,60,0.808,0.921,8.41,6.66,0.0,1.0
+DeepSeek-V4,OCR-LLM,60,0.786,0.896,10.7,0.13,0.005,1.0
+GPT-4o,OCR-LLM,60,0.77,0.866,7.93,2.45,0.026,1.0
+Llama-4-Maverick,OCR-LLM,60,0.769,0.881,9.86,0.28,0.03,1.0
+Phi-4-MM,VLM Direct,60,0.723,0.781,12.55,0.3,0.268,1.0
+GPT-5.2,OCR-LLM,60,0.721,0.882,11.09,5.24,0.0,1.0
+Phi-4-MM,OCR-LLM,60,0.702,0.829,11.8,0.08,0.039,0.983

@@ -1,0 +1,51 @@
+{
+  "doc_name": "NGUYEN THI HOA DAO_CCCD",
+  "pipeline": "ocr_llm",
+  "model": "DeepSeek-V4-Flash",
+  "timestamp": "2026-05-25T14:51:11.154336+00:00",
+  "predicted": {
+    "id_num": "001122334452",
+    "name": "NGUYÊN THỊ HOA ĐÀO",
+    "dob": "30/11/1990",
+    "nationality": "Việt Nam",
+    "origin_place": "Làng Hà, Hà Nội",
+    "expire_date": "08/10/2000"
+  },
+  "ground_truth": {
+    "dob": "30/11/1990",
+    "expire_date": "08/10/2000",
+    "name": "NGUYỄN THỊ HOA ĐÀO",
+    "nationality": "Việt Nam",
+    "origin_place": "Láng Hạ, Hà Nội",
+    "id_num": "001122334452"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": false,
+    "dob": true,
+    "nationality": true,
+    "origin_place": false,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 0.75,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 0.5,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 0.6667,
+  "overall_token_f1": 0.875,
+  "latency_sec": 5.202,
+  "usage": {
+    "prompt_tokens": 785,
+    "completion_tokens": 86,
+    "thinking_tokens": null,
+    "total_tokens": 871
+  },
+  "meta": {
+    "ocr_chars": 932
+  },
+  "error": null
+}

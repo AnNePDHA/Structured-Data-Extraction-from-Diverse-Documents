@@ -1,0 +1,15 @@
+{
+  "doc_name": "286.rf.70805e1d828983cf57708be436b28c18",
+  "lang": "VN",
+  "doc_type": "id_card",
+  "subtype": "typed",
+  "image_path": "img/286.rf.70805e1d828983cf57708be436b28c18.jpg",
+  "fields": {
+    "dob": "12/12/1996",
+    "expire_date": "12/12/2036",
+    "name": "TRẦN THỊ THÚY LIỄU",
+    "nationality": "Việt Nam",
+    "origin_place": "Nam Dương, Nam Trực, Nam Định",
+    "id_num": "036196012656"
+  }
+}

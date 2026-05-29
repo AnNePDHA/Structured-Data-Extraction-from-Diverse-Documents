@@ -1,0 +1,41 @@
+{
+  "doc_name": "X51006350763",
+  "pipeline": "vlm_direct",
+  "model": "gpt-5.2-chat",
+  "timestamp": "2026-05-25T06:18:59.798024+00:00",
+  "predicted": {
+    "company": "GL HANDICRAFT & TAILORING",
+    "date": "09/04/2018 10:52",
+    "address": "19, JALAN HANGIL,\nOFF JALAN PUDU,\n55100 KUALA LUMPUR,\nMALAYSIA",
+    "total": "104.00"
+  },
+  "ground_truth": {
+    "company": "GL HANDICRAFT & TAII ORING",
+    "date": "09/04/2018",
+    "address": "19, JALAN KANCIL, OFF JALAN PUDU, 55100 KUALA LUMPUR MALAYSIA",
+    "total": "104.00"
+  },
+  "exact_match": {
+    "company": false,
+    "date": false,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 0.5714,
+    "date": 0.75,
+    "address": 0.9,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.25,
+  "overall_token_f1": 0.8054,
+  "latency_sec": 7.683,
+  "usage": {
+    "prompt_tokens": 1570,
+    "completion_tokens": 283,
+    "thinking_tokens": null,
+    "total_tokens": 1853
+  },
+  "meta": {},
+  "error": null
+}

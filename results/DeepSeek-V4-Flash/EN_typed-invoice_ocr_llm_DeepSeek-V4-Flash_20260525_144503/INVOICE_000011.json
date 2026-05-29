@@ -1,0 +1,43 @@
+{
+  "doc_name": "INVOICE_000011",
+  "pipeline": "ocr_llm",
+  "model": "DeepSeek-V4-Flash",
+  "timestamp": "2026-05-25T14:45:21.803002+00:00",
+  "predicted": {
+    "company": "Digital Systems",
+    "date": "2026-04-14",
+    "address": null,
+    "total": "$8079.52"
+  },
+  "ground_truth": {
+    "company": "Digital Systems",
+    "date": "2026-04-14",
+    "address": null,
+    "total": "$8079.52"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 11.621,
+  "usage": {
+    "prompt_tokens": 413,
+    "completion_tokens": 39,
+    "thinking_tokens": null,
+    "total_tokens": 452
+  },
+  "meta": {
+    "ocr_chars": 369
+  },
+  "error": null
+}

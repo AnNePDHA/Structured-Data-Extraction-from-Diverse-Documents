@@ -1,0 +1,18 @@
+{
+  "company": {
+    "description": "Name of the company or store issuing the invoice or receipt",
+    "format": "keep the full name exactly as printed"
+  },
+  "date": {
+    "description": "Invoice or receipt date",
+    "format": "keep the original format as printed on the document"
+  },
+  "address": {
+    "description": "Company or store address. Return null if the document does not include an address field.",
+    "format": "keep the address exactly as printed; null if absent"
+  },
+  "total": {
+    "description": "Total payable amount (grand total, including tax if shown)",
+    "format": "keep the original currency symbol and number format if present"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "doc_name": "RECEIPT_000003",
+  "pipeline": "vlm_direct",
+  "model": "Phi-4-multimodal-instruct",
+  "timestamp": "2026-05-25T08:17:58.567880+00:00",
+  "predicted": {
+    "company": "Khaadi",
+    "date": "2026-03-28",
+    "address": "Dolmen Mall, Karachi",
+    "total": "PKR 37018.17"
+  },
+  "ground_truth": {
+    "company": "Khaadi",
+    "date": "2026-03-28",
+    "address": "Dolmen Mall, Karachi",
+    "total": "PKR 37018.17"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 3.11,
+  "usage": {
+    "prompt_tokens": 2038,
+    "completion_tokens": 42,
+    "thinking_tokens": null,
+    "total_tokens": 2080
+  },
+  "meta": {},
+  "error": null
+}

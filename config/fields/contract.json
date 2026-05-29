@@ -1,0 +1,30 @@
+{
+  "party_a": {
+    "description": "Party A — the first contracting party. Loan contract (VN): the lender (bank / credit institution). Account-opening form (VN): the bank. EN synthetic contract: the first named party.",
+    "format": "keep the full legal name exactly as written"
+  },
+  "party_b": {
+    "description": "Party B — the second contracting party. Loan contract (VN): the borrower. Account-opening form (VN): the account holder (customer). EN synthetic contract: the second named party.",
+    "format": "keep the full legal name exactly as written"
+  },
+  "effective_date": {
+    "description": "Signing date or effective date of the contract. Return null if not present on the visible page.",
+    "format": "keep the original format as written in the document; null if absent"
+  },
+  "term": {
+    "description": "Contract term or duration (e.g. loan period, end date of agreement). Return null if not applicable or not present (e.g. account-opening forms typically have no fixed term).",
+    "format": "keep the original format as written; null if absent or not applicable"
+  },
+  "governing_law": {
+    "description": "Governing law or jurisdiction clause. VN contracts: usually 'Pháp luật nước Cộng hòa xã hội chủ nghĩa Việt Nam'. Return null if not visible on the document.",
+    "format": "keep verbatim as written; null if absent"
+  },
+  "contract_number": {
+    "description": "Contract number or ID (số hợp đồng). For VN bank loan contracts: printed reference number. For account-opening forms: the form sequence number. Return null if not present.",
+    "format": "keep the identifier exactly as printed, including any prefix and separators; null if absent"
+  },
+  "contract_value": {
+    "description": "Contract value or loan amount (giá trị hợp đồng / số tiền vay). Loan contract: the disbursed loan amount. Account-opening form: not applicable — return null.",
+    "format": "keep the original currency symbol and number format if present; null if absent or not applicable"
+  }
+}

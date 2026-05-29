@@ -1,0 +1,49 @@
+{
+  "doc_name": "226.rf.f3756dd09242baf2ccb4c071c29bad2e",
+  "pipeline": "vlm_direct",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T17:03:50.053799+00:00",
+  "predicted": {
+    "id_num": "001079052151",
+    "name": "PHẠM ĐÌNH QUYỀN",
+    "dob": "24/08/1979",
+    "nationality": "Việt Nam",
+    "origin_place": "Trầm Lộng, Ứng Hòa, Hà Nội",
+    "expire_date": "24/08/2039"
+  },
+  "ground_truth": {
+    "dob": "24/08/1979",
+    "expire_date": "24/08/2039",
+    "name": "PHẠM ĐÌNH QUYỀN",
+    "nationality": "Việt Nam",
+    "origin_place": "Trầm Lộng, Ứng Hòa, Hà Nội",
+    "id_num": "001079052151"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": true,
+    "dob": true,
+    "nationality": true,
+    "origin_place": true,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 1.0,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 1.0,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 3.794,
+  "usage": {
+    "prompt_tokens": 656,
+    "completion_tokens": 85,
+    "thinking_tokens": null,
+    "total_tokens": 741
+  },
+  "meta": {},
+  "error": null
+}

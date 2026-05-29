@@ -1,0 +1,41 @@
+{
+  "doc_name": "X51006414392",
+  "pipeline": "vlm_direct",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T16:12:28.437460+00:00",
+  "predicted": {
+    "company": "DI HUAN YA RESTAURANT",
+    "date": "07/04/2018 - 18.10.59",
+    "address": "5, JALAN PERMAS 10/5, BANDAR BARU PERMAS JAYA, 81750 JOHOR BAHRU, JOHOR TEL/FAX: 07-3868322",
+    "total": "35.00"
+  },
+  "ground_truth": {
+    "company": "DI HUAN YA RESTAURANT",
+    "date": "07/04/2018",
+    "address": "5,JALAN PERMAS 10/5, BANDAR BARU PERMAS JAYA, 81750 JOHOR BAHRU,JOHOR",
+    "total": "35.00"
+  },
+  "exact_match": {
+    "company": true,
+    "date": false,
+    "address": false,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 0.6667,
+    "address": 0.8667,
+    "total": 1.0
+  },
+  "overall_exact_match": 0.5,
+  "overall_token_f1": 0.8833,
+  "latency_sec": 6.027,
+  "usage": {
+    "prompt_tokens": 1125,
+    "completion_tokens": 93,
+    "thinking_tokens": null,
+    "total_tokens": 1218
+  },
+  "meta": {},
+  "error": null
+}

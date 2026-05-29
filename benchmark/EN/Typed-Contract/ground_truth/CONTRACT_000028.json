@@ -1,0 +1,14 @@
+{
+  "doc_name": "CONTRACT_000028",
+  "lang": "EN",
+  "doc_type": "contract",
+  "subtype": "typed",
+  "image_path": "img/CONTRACT_000028.png",
+  "fields": {
+    "party_a": "SecureTech",
+    "party_b": "Al-Madina Traders",
+    "effective_date": "2026-04-08",
+    "term": "24 months",
+    "governing_law": "Pakistan"
+  }
+}

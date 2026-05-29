@@ -1,0 +1,49 @@
+{
+  "doc_name": "272.rf.e6673726b819f3bc58a5d89193e66eab",
+  "pipeline": "vlm_direct",
+  "model": "gpt-4o",
+  "timestamp": "2026-05-24T17:03:57.250772+00:00",
+  "predicted": {
+    "id_num": "027093002309",
+    "name": "NGUYỄN HỮU BẢO",
+    "dob": "03/03/1993",
+    "nationality": "Việt Nam",
+    "origin_place": "Tam Sơn, Thị xã Từ Sơn, Bắc Ninh",
+    "expire_date": "03/03/2033"
+  },
+  "ground_truth": {
+    "dob": "03/03/1993",
+    "expire_date": "03/03/2033",
+    "name": "NGUYỄN HỮU BẢO",
+    "nationality": "Việt Nam",
+    "origin_place": "Tam Sơn, Thị xã Từ Sơn, Bắc Ninh",
+    "id_num": "027093002309"
+  },
+  "exact_match": {
+    "id_num": true,
+    "name": true,
+    "dob": true,
+    "nationality": true,
+    "origin_place": true,
+    "expire_date": true
+  },
+  "token_f1": {
+    "id_num": 1.0,
+    "name": 1.0,
+    "dob": 1.0,
+    "nationality": 1.0,
+    "origin_place": 1.0,
+    "expire_date": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 3.597,
+  "usage": {
+    "prompt_tokens": 656,
+    "completion_tokens": 87,
+    "thinking_tokens": null,
+    "total_tokens": 743
+  },
+  "meta": {},
+  "error": null
+}

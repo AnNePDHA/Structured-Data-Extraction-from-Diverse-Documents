@@ -1,0 +1,41 @@
+{
+  "doc_name": "INVOICE_000069",
+  "pipeline": "vlm_direct",
+  "model": "gpt-5.2-chat",
+  "timestamp": "2026-05-25T06:16:55.454021+00:00",
+  "predicted": {
+    "company": "ABC Corp",
+    "date": "2026-04-23",
+    "address": null,
+    "total": "$10210.79"
+  },
+  "ground_truth": {
+    "company": "ABC Corp",
+    "date": "2026-04-23",
+    "address": null,
+    "total": "$10210.79"
+  },
+  "exact_match": {
+    "company": true,
+    "date": true,
+    "address": true,
+    "total": true
+  },
+  "token_f1": {
+    "company": 1.0,
+    "date": 1.0,
+    "address": 1.0,
+    "total": 1.0
+  },
+  "overall_exact_match": 1.0,
+  "overall_token_f1": 1.0,
+  "latency_sec": 7.951,
+  "usage": {
+    "prompt_tokens": 1197,
+    "completion_tokens": 304,
+    "thinking_tokens": null,
+    "total_tokens": 1501
+  },
+  "meta": {},
+  "error": null
+}
