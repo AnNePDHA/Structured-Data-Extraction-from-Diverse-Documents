@@ -9,19 +9,14 @@
 venv/
 __pycache__/
 *.pyc
+.ipynb_checkpoints/
 
-# ===== Source code (not published in this repo) =====
-pipelines/
-evaluation/
-scripts/
-notebooks/*.ipynb
-
-# ===== Raw / bulky data (publish only data-processed) =====
+# ===== Raw / bulky data (track only data-processed) =====
 data/
 data-processed/**/*.tif
 data-processed/**/*.tiff
 
-# ===== LaTeX build artifacts (publish only the PDF) =====
+# ===== LaTeX build artifacts =====
 paper/*.aux
 paper/*.log
 paper/*.toc
@@ -33,17 +28,13 @@ paper/*.blg
 paper/*.synctex.gz
 paper/*.fls
 paper/*.fdb_latexmk
-paper/_*.minted
-paper/**/*.minted
-paper/thesis.tex
-paper/*.sty
+paper/_minted/
+paper/*.minted
 
-# ===== Internal material =====
-.claude/
-CLAUDE.md
+# ===== Not tracked =====
 references/
-outline/
 archive/
+.claude/settings.local.json
 
 # ===== OS =====
 .DS_Store
