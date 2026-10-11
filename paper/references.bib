@@ -1,0 +1,184 @@
+% ============================================================
+% Tài liệu tham khảo — Luận văn Thạc sĩ
+% Xây dựng hệ thống trích xuất dữ liệu có cấu trúc từ đa dạng tài liệu
+% và đánh giá hiệu năng các mô hình VLM và OCR-LLM
+% ============================================================
+
+% --- Nhóm 0: Kho lưu trữ của đề tài ---
+
+@misc{pham2026repo,
+  author       = {Pham, Dai Hoang An},
+  title        = {Structured Data Extraction from Diverse Documents: Benchmark Dataset, Experimental Results and Figures},
+  year         = {2026},
+  howpublished = {\url{https://github.com/AnNePDHA/Structured-Data-Extraction-from-Diverse-Documents}},
+  note         = {Truy cập ngày 01/06/2026}
+}
+
+% --- Nhóm 1: Công trình liên quan ---
+
+@article{berghaus2025invoice,
+  author    = {Berghaus, David and Berger, Armin and Hillebrand, Lars and Cvejoski, Kostadin and Sifa, Rafet},
+  title     = {Multi-Modal Vision vs. Text-Based Parsing: Benchmarking {LLM} Strategies for Invoice Processing},
+  journal   = {arXiv preprint arXiv:2509.04469},
+  year      = {2025}
+}
+
+@article{yashwant2025invoice,
+  author    = {Yashwant, Sai and Dubey, Anurag and Paikray, Praneeth and Thulsiram, Gantala},
+  title     = {Invoice Information Extraction: Methods and Performance Evaluation},
+  journal   = {arXiv preprint arXiv:2510.15727},
+  year      = {2025}
+}
+
+@article{cheng2026hybrid,
+  author    = {Cheng, Lilu and Lu, Jingjun and Chan, Yi Xuan and Nguyen, Quoc Khai and Bi, John and Ho, Sean},
+  title     = {A Hybrid Architecture for Multi-Stage Claim Document Understanding: Combining Vision-Language Models and Machine Learning for Real-Time Processing},
+  journal   = {arXiv preprint arXiv:2601.01897},
+  year      = {2026}
+}
+
+@article{jin2025multistage,
+  author    = {Jin, Yichao and Wang, Yushuo and Zhong, Qishuai and Jin-Chun, Kent Chiu and Ke, Kenneth Zhu and MacDonald, Donald},
+  title     = {Multi-Stage Field Extraction of Financial Documents with {OCR} and Compact Vision-Language Models},
+  journal   = {arXiv preprint arXiv:2510.23066},
+  year      = {2025}
+}
+
+% --- Nhóm 2: Dataset ---
+
+@inproceedings{huang2019sroie,
+  author    = {Huang, Zheng and Chen, Kai and He, Jianhua and Bai, Xiang and Karatzas, Dimosthenis and Lu, Shijian and Jawahar, C. V.},
+  title     = {ICDAR2019 Competition on Scanned Receipt OCR and Information Extraction},
+  booktitle = {ICDAR},
+  year      = {2019}
+}
+
+@inproceedings{park2019cord,
+  author    = {Park, Seunghyun and Shin, Seung and Lee, Bado and Lee, Junyeop and Surh, Jaeheung and Seo, Minjoon and Lee, Hwalsuk},
+  title     = {{CORD}: A Consolidated Receipt Dataset for Post-OCR Parsing},
+  booktitle = {NeurIPS Workshop},
+  year      = {2019}
+}
+
+@article{bulatov2018midv500,
+  author    = {Bulatov, Konstantin and Arlazarov, Vladislav V. and Chernov, Timofey and Slavin, Oleg and Arlazarov, Vladimir L.},
+  title     = {{MIDV-500}: A Dataset for Identity Document Analysis and Recognition on Mobile Devices in Video Stream},
+  journal   = {arXiv preprint arXiv:1807.05786},
+  year      = {2018}
+}
+
+@inproceedings{hendrycks2021cuad,
+  author    = {Hendrycks, Dan and Burns, Collin and Chen, Anya and Ball, Spencer},
+  title     = {{CUAD}: An Expert-Annotated {NLP} Dataset for Legal Contract Review},
+  booktitle = {NeurIPS},
+  year      = {2021}
+}
+
+@inproceedings{jaume2019funsd,
+  author    = {Jaume, Guillaume and Ekenel, Hazim Kemal and Thiran, Jean-Philippe},
+  title     = {{FUNSD}: A Dataset for Form Understanding in Noisy Scanned Documents},
+  booktitle = {ICDAR Workshop},
+  year      = {2019}
+}
+
+% --- Nhóm 3: Cơ sở lý thuyết ---
+
+@article{qwen25vl2025,
+  author    = {Bai, Shuai and others},
+  title     = {Qwen2.5-{VL} Technical Report},
+  journal   = {arXiv preprint arXiv:2502.13923},
+  year      = {2025}
+}
+
+@article{vaswani2017attention,
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  title     = {Attention Is All You Need},
+  journal   = {NeurIPS},
+  year      = {2017}
+}
+
+@article{openai2023gpt4,
+  author    = {{OpenAI}},
+  title     = {{GPT-4} Technical Report},
+  journal   = {arXiv preprint arXiv:2303.08774},
+  year      = {2023}
+}
+
+@article{zhu2021idp,
+  author    = {Cutting, Graham A. and Cutting-Decelle, Anne-Fran{\c{c}}oise},
+  title     = {Intelligent Document Processing -- Methods and Tools in the Real World},
+  journal   = {arXiv preprint arXiv:2112.14070},
+  year      = {2021}
+}
+
+@article{li2021trocr,
+  author    = {Li, Minghao and Lv, Tengchao and Chen, Jingye and Cui, Lei and Lu, Yijuan and Florencio, Dinei and Zhang, Cha and Li, Zhoujun and Wei, Furu},
+  title     = {{TrOCR}: Transformer-based Optical Character Recognition with Pre-trained Models},
+  journal   = {arXiv preprint arXiv:2109.10282},
+  year      = {2021}
+}
+
+@article{paddleocr2022,
+  author    = {Du, Yuning and Li, Chenxia and Guo, Ruoyu and Cui, Cheng and Liu, Weiwei and Zhou, Jun and Lu, Bin and Yang, Yehua and Liu, Qiwen and Hu, Xiaoguang and Yu, Dianhai and Ma, Yanjun},
+  title     = {{PP-OCRv3}: More Attempts for the Improvement of Ultra Lightweight {OCR} System},
+  journal   = {arXiv preprint arXiv:2206.03001},
+  year      = {2022}
+}
+
+@article{gemini15report2024,
+  author    = {{Gemini Team, Google}},
+  title     = {Gemini 1.5: Unlocking Multimodal Understanding Across Millions of Tokens of Context},
+  journal   = {arXiv preprint arXiv:2403.05530},
+  year      = {2024}
+}
+
+@article{liu2023llava,
+  author    = {Liu, Haotian and Li, Chunyuan and Wu, Qingyang and Lee, Yong Jae},
+  title     = {Visual Instruction Tuning},
+  journal   = {arXiv preprint arXiv:2304.08485},
+  year      = {2023}
+}
+
+@article{vlmsurvey2025,
+  author    = {Li, Zongxia and Wu, Xiyang and Du, Hongyang and Liu, Fuxiao and Nghiem, Huy and Shi, Guangyao},
+  title     = {A Survey of State of the Art Large Vision Language Models: Alignment, Benchmark, Evaluations and Challenges},
+  journal   = {arXiv preprint arXiv:2501.02189},
+  year      = {2025}
+}
+
+@article{docparsing2024,
+  author    = {Zhang, Qintong and Li, Bin and Wei, Mengjie and Yan, Lei and Wang, Zhiyong and Liu, Hai-Tao},
+  title     = {Document Parsing Unveiled: Techniques, Challenges, and Prospects for Structured Information Extraction},
+  journal   = {arXiv preprint arXiv:2410.21169},
+  year      = {2024}
+}
+
+@inproceedings{biten2019anls,
+  author    = {Biten, Ali Furkan and Tito, Ruben and Mafla, Andres and Gomez, Lluis and Rusi{\~n}ol, Mar{\c{c}}al and Valveny, Ernest and Jawahar, C. V. and Karatzas, Dimosthenis},
+  title     = {Scene Text Visual Question Answering},
+  booktitle = {ICCV},
+  year      = {2019}
+}
+
+@article{hallucination2023survey,
+  author    = {Huang, Lei and Yu, Weijiang and Ma, Weitao and Zhong, Weihong and Feng, Zhangyin and Wang, Haotian and Chen, Qianglong and Peng, Weihua and Feng, Xiaocheng and Qin, Bing and Liu, Ting},
+  title     = {A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions},
+  journal   = {arXiv preprint arXiv:2311.05232},
+  year      = {2023}
+}
+
+@inproceedings{xu2020layoutlm,
+  author    = {Xu, Yiheng and Li, Minghao and Cui, Lei and Huang, Shaohan and Wei, Furu and Zhou, Ming},
+  title     = {{LayoutLM}: Pre-training of Text and Layout for Document Image Understanding},
+  booktitle = {Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining},
+  pages     = {1192--1200},
+  year      = {2020}
+}
+
+@inproceedings{huang2022layoutlmv3,
+  author    = {Huang, Yupan and Lv, Tengchao and Cui, Lei and Lu, Yutong and Wei, Furu},
+  title     = {{LayoutLMv3}: Pre-training for Document AI with Unified Text and Image Masking},
+  booktitle = {Proceedings of the 30th ACM International Conference on Multimedia},
+  pages     = {4083--4091},
+  year      = {2022}
+}

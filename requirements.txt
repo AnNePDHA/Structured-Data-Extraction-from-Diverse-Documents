@@ -1,0 +1,10 @@
+google-generativeai>=0.8.0
+easyocr>=1.7.0
+Pillow>=10.0.0
+python-dotenv>=1.0.0
+openai>=1.40.0
+azure-ai-inference>=1.0.0b6
+azure-ai-documentintelligence>=1.0.0
+azure-core>=1.30.0
+matplotlib>=3.8
+seaborn>=0.13

@@ -1,99 +1,87 @@
-# Structured Data Extraction from Diverse Documents: Benchmarking Vision-Language Models and OCR-LLM Pipelines
+# Luận văn tốt nghiệp Thạc sĩ
 
-## Overview
+**Đề tài:** Xây dựng hệ thống trích xuất dữ liệu có cấu trúc từ đa dạng tài liệu và đánh giá hiệu năng các mô hình VLM và OCR-LLM
 
-This work compares two strategies for **Structured Data Extraction (SDE)** — turning a document image into a flat JSON object following a predefined schema — on a multilingual benchmark of invoices, citizen ID cards (CCCD), and contracts:
-
-- **Pipeline A — VLM Direct:** image → Vision-Language Model → JSON (no intermediate OCR step).
-- **Pipeline B — OCR-LLM:** image → OCR engine (EasyOCR / Azure Document Intelligence) → text-only LLM → JSON.
-
-Each configuration is evaluated along **four dimensions**:
-
-| Dimension | Metrics |
+| Mục | Nội dung |
 |---|---|
-| Accuracy | Exact Match (EM), Token-F1 |
-| Robustness | EM drop EN→VI, typed→handwritten |
-| Efficiency | Latency (s/doc), Cost (USD / 1,000 docs) |
-| Reliability | Hallucination rate, Schema-compliance rate |
+| Học viên | Phạm Đại Hoàng An (2470281) |
+| GVHD | TS. Trần Tuấn Anh |
+| Trường | Đại học Bách Khoa, ĐHQG TP.HCM, Khoa Khoa học và Kỹ thuật Máy tính |
+| Giai đoạn | **Giai đoạn 2, thực hiện luận văn** (đề cương đã bảo vệ xong tháng 06/2026) |
+| Hạn nộp | Tháng 12/2026 |
 
-A total of **540 extraction runs** were performed: 5 models × (the 4 vision-capable models on both pipelines + the text-only DeepSeek-V4 on OCR-LLM only) × 60 documents.
+## Trạng thái
 
----
+Đã xong ở giai đoạn đề cương:
 
-## Benchmark dataset
+- Benchmark 60 mẫu / 5 tập con trong `data-processed/`.
+- Hai pipeline (VLM Direct, OCR-LLM) và bộ chỉ số đánh giá trong `pipelines/`, `evaluation/`.
+- 540 lượt trích xuất trên 5 mô hình, kết quả trong `results/`.
+- Báo cáo đủ 5 chương trong `paper/thesis.tex`. Bản PDF đã nộp và slide bảo vệ nằm ở `archive/de_cuong/`.
 
-**60 samples** across **5 subsets** (each sample = one PNG image + one ground-truth JSON). Field values are kept **verbatim** as printed (dates, currency, casing are **not** normalized).
+Yêu cầu của hội đồng cho giai đoạn 2: không đổi scope, **hiện thực hệ thống thật**, tập trung vào xây dựng hệ thống.
 
-| Subset | Language | Doc type | Form | #Samples |
-|---|---|---|---|---|
-| `EN/Typed-Invoice` | EN | Invoice | Typed | 20 |
-| `EN/Typed-Contract` | EN | Contract | Typed | 20 |
-| `VN/Typed-IdCard` | VN | ID card | Typed | 10 |
-| `VN/Typed-Contract` | VN | Contract | Typed | 5 |
-| `VN/Handwritten-Contract` | VN | Contract | Handwritten | 5 |
-
-**Sources:** SROIE (ICDAR 2019), Kaggle `invoice-receipt-contract-ocr`, Roboflow CCCD, and self-collected real-world Vietnamese banking documents.
-
----
-
-## Models evaluated
-
-| Model | Provider | Vision | Pipelines |
-|---|---|---|---|
-| GPT-5.2 | Azure OpenAI | ✅ | A + B |
-| GPT-4o | Azure OpenAI | ✅ | A + B |
-| Llama-4-Maverick (17B-128E, FP8) | Azure AI Foundry | ✅ | A + B |
-| Phi-4-multimodal-instruct | Azure AI Foundry | ✅ | A + B |
-| DeepSeek-V4-Flash | Azure AI Foundry | ❌ (text-only) | B only |
-
----
-
-## Key results
-
-| Model | Pipeline | EM | Token-F1 | Latency (s) | Cost (USD/1k) | Hallu. | Schema |
-|---|---|---|---|---|---|---|---|
-| Llama-4-Maverick | VLM Direct | **83.6%** | **92.3%** | **1.76** | 0.91 | 2.6% | 100% |
-| GPT-4o | VLM Direct | 82.4% | 89.9% | 3.95 | 3.63 | 6.3% | 100% |
-| GPT-5.2 | VLM Direct | 80.8% | 92.1% | 8.41 | 6.66 | **0.0%** | 100% |
-| DeepSeek-V4 | OCR-LLM | 78.6% | 89.6% | 10.70 | 0.13 | 0.5% | 100% |
-| GPT-4o | OCR-LLM | 77.0% | 86.6% | 7.93 | 2.45 | 2.6% | 100% |
-| Llama-4-Maverick | OCR-LLM | 76.9% | 88.1% | 9.86 | 0.28 | 3.0% | 100% |
-| Phi-4-MM | VLM Direct | 72.3% | 78.1% | 12.55 | 0.30 | 26.8% | 100% |
-| GPT-5.2 | OCR-LLM | 72.1% | 88.2% | 11.09 | 5.24 | **0.0%** | 100% |
-| Phi-4-MM | OCR-LLM | 70.2% | 82.9% | 11.80 | **0.08** | 3.9% | 98.3% |
-
-**Takeaways:**
-- **Best overall:** Llama-4-Maverick (VLM Direct) — highest accuracy, lowest latency, low cost.
-- **Best on Vietnamese:** DeepSeek-V4 (OCR-LLM) — VI EM 82.0% > EN EM 77.0%, the most robust across languages.
-- **Cheapest:** Phi-4-MM (OCR-LLM) — ~$0.08 per 1,000 documents.
-- VLM Direct generally beats OCR-LLM on typed English documents and latency; OCR-LLM is preferable for Vietnamese, handwritten text, or when using text-only models.
-- Cost figures cover **LLM/VLM token usage only** (pricing snapshot May 2026); they exclude per-page OCR fees (e.g. Azure Document Intelligence).
-
----
-
-## Repository structure
+## Cấu trúc thư mục
 
 ```
-.
-├── README.md
-├── 2470281_Report.pdf               # Full thesis (PDF, at repo root)
-├── benchmark/                       # 60-sample dataset (images + ground-truth JSON)
-│   ├── EN/Typed-Invoice/{img,ground_truth}/
-│   ├── EN/Typed-Contract/{img,ground_truth}/
-│   ├── VN/Typed-IdCard/{img,ground_truth}/
-│   ├── VN/Typed-Contract/{img,ground_truth}/
-│   └── VN/Handwritten-Contract/{img,ground_truth}/
-├── config/                          # Field schemas & prompt templates (for reproducibility)
-│   ├── fields/*.json
-│   └── prompts/*.md
-├── results/
-│   ├── summary_table.csv            # Leaderboard (all 4 dimensions)
-│   ├── accuracy_table.csv
-│   ├── <model>/                     # Raw per-document JSON outputs per model & pipeline
-│   └── figures/                     # Result charts (PNG/PDF) + metric CSVs
-└── figures/
-    ├── architecture/                # System/pipeline diagrams, UI mockups
-    └── eda/                         # Dataset exploratory-analysis charts
+LVTN/
+├── outline/            THESIS_CONTEXT.md, WRITING_STYLE.md, DATASOURCE_CONTEXT.md
+├── paper/              thesis.tex (nguồn duy nhất của nội dung chương), references.bib, Images/
+├── archive/de_cuong/   PDF báo cáo và slide bảo vệ đề cương
+├── config/             fields/ (schema trường), prompts/ (prompt template)
+├── pipelines/          Pipeline A, Pipeline B, model client, OCR engine
+├── evaluation/         metrics.py
+├── scripts/            chuẩn bị dữ liệu, run_benchmark.py, run_eda.py
+├── notebooks/          eda_dataset.ipynb, results_comparison.ipynb
+├── data/               dữ liệu thô (public + data/VN/DataV3 tự thu thập)
+├── data-processed/     benchmark 60 mẫu
+├── results/            kết quả theo mô hình, bảng tổng hợp, figures/
+└── references/         PDF tài liệu tham khảo
 ```
 
----
+Mã nguồn hệ thống của giai đoạn 2 sẽ đặt ở `system/`, tái dùng `pipelines/` và `evaluation/`.
+
+## Lộ trình giai đoạn 2
+
+| Tuần | Ngày | Việc |
+|---|---|---|
+| 1 | 12–18/10 | Chốt yêu cầu chức năng, kiến trúc và tech stack của hệ thống. Chốt với GVHD việc tách chương hệ thống riêng. |
+| 2–3 | 19/10–01/11 | Backend: API bọc `VLMDirectPipeline` và `OCRLLMPipeline` (upload, khai báo schema, chạy job, lấy kết quả), lưu lịch sử, nhận PDF và ảnh. |
+| 4–5 | 02–15/11 | Frontend 5 bước theo mockup mục 4.6: upload, schema, chọn pipeline và model, tiến trình, kết quả kèm sửa trường và xuất file. |
+| 6 | 16–22/11 | Gợi ý pipeline theo kết quả benchmark, đánh dấu trường cần review. Kiểm thử đầu cuối trên 60 mẫu, đo độ trễ và chi phí của hệ thống. |
+| 7 | 23–29/11 | Viết chương hệ thống (yêu cầu, kiến trúc, hiện thực, kiểm thử), thay hình mockup bằng ảnh chụp hệ thống thật, cập nhật chương 1 và chương kết luận. |
+| 8 | 30/11–06/12 | Trang phụ đầu và phụ lục. Gửi GVHD đọc. |
+| 9 | 07–13/12 | Sửa theo GVHD, nộp, làm slide bảo vệ. |
+
+Đề xuất tech stack, chốt ở tuần 1: FastAPI + SQLite cho backend, giao diện web dựng theo mockup. Phương án dự phòng nếu thiếu thời gian: Streamlit.
+
+## Việc còn thiếu
+
+Hệ thống:
+
+- [ ] Chốt yêu cầu chức năng và kiến trúc
+- [ ] Backend bọc 2 pipeline
+- [ ] Giao diện 5 bước
+- [ ] Kiểm thử đầu cuối trên 60 mẫu
+
+Luận văn (`paper/thesis.tex`):
+
+- [ ] Chương hệ thống, thay cho mục 4.6 mockup
+- [ ] Nhiệm vụ luận văn thạc sĩ
+- [ ] Lời cảm ơn
+- [ ] Tóm tắt và Abstract
+- [ ] Lời cam đoan
+- [ ] Danh sách từ viết tắt
+- [ ] Phụ lục A: danh sách mô hình và cấu hình thực nghiệm
+- [ ] Phụ lục B: prompt template chi tiết
+- [ ] Phụ lục C: kết quả thực nghiệm đầy đủ
+- [ ] Slide bảo vệ luận văn
+
+## Chạy lại thực nghiệm
+
+```bash
+.venv\Scripts\activate
+python scripts/run_benchmark.py --help
+```
+
+Khóa API đặt trong `.env`, mẫu ở `.env.example`.

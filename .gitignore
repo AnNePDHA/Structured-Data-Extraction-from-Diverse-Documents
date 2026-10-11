@@ -3,7 +3,6 @@
 .env.*
 !.env.example
 *.key
-.txt
 
 # ===== Python environment & caches =====
 .venv/
@@ -37,20 +36,14 @@ paper/*.fdb_latexmk
 paper/_*.minted
 paper/**/*.minted
 paper/thesis.tex
-paper/thesis copy.tex
 paper/*.sty
-paper/report-ref/
 
-# ===== Internal / draft material =====
+# ===== Internal material =====
 .claude/
 CLAUDE.md
-draft/
 references/
 outline/
-link.md
-thesis_workflow.md
-pipeline_a_vlm_direct.md
-pipeline_b_ocr_llm.md
+archive/
 
 # ===== OS =====
 .DS_Store
