@@ -17,7 +17,7 @@
 - Benchmark 60 mẫu / 5 tập con trong `data-processed/`.
 - Hai pipeline (VLM Direct, OCR-LLM) và bộ chỉ số đánh giá trong `pipelines/`, `evaluation/`.
 - 540 lượt trích xuất trên 5 mô hình, kết quả trong `results/`.
-- Báo cáo đủ 5 chương trong `paper/thesis.tex`. Bản PDF đã nộp và slide bảo vệ nằm ở `archive/de_cuong/`.
+- Báo cáo đề cương đủ 5 chương trong `paper/thesis.tex` (giữ nguyên, không sửa). Bản PDF đã nộp và slide bảo vệ nằm ở `archive/de_cuong/`.
 
 Yêu cầu của hội đồng cho giai đoạn 2: không đổi scope, **hiện thực hệ thống thật**, tập trung vào xây dựng hệ thống.
 
@@ -26,7 +26,7 @@ Yêu cầu của hội đồng cho giai đoạn 2: không đổi scope, **hiện
 ```
 LVTN/
 ├── outline/            THESIS_CONTEXT.md, WRITING_STYLE.md, DATASOURCE_CONTEXT.md
-├── paper/              thesis.tex (nguồn duy nhất của nội dung chương), references.bib, Images/
+├── paper/              luan_van.tex (luận văn giai đoạn 2, nguồn duy nhất của nội dung chương), thesis.tex (đề cương, không sửa), references.bib, Images/
 ├── archive/de_cuong/   PDF báo cáo và slide bảo vệ đề cương
 ├── config/             fields/ (schema trường), prompts/ (prompt template)
 ├── pipelines/          Pipeline A, Pipeline B, model client, OCR engine
@@ -64,9 +64,10 @@ Hệ thống:
 - [ ] Giao diện 5 bước
 - [ ] Kiểm thử đầu cuối trên 60 mẫu
 
-Luận văn (`paper/thesis.tex`):
+Luận văn (`paper/luan_van.tex`, đã dựng khung 6 chương, các mục mới còn `% TODO`):
 
-- [ ] Chương hệ thống, thay cho mục 4.6 mockup
+- [ ] Mục 4.6 khuyến nghị lựa chọn pipeline
+- [ ] Chương 5 hệ thống, thay cho mục 4.6 mockup của đề cương
 - [ ] Nhiệm vụ luận văn thạc sĩ
 - [ ] Lời cảm ơn
 - [ ] Tóm tắt và Abstract

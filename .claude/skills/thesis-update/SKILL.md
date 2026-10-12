@@ -1,7 +1,7 @@
 ---
 name: thesis-update
 description: >
-  Tự động đọc conversation hiện tại, lọc ra những nội dung đã được chốt, tổng hợp thành bản preview để người dùng confirm, rồi ghi thẳng vào đúng chương, mục trong paper/thesis.tex theo đúng style luận văn thạc sĩ Bách Khoa.
+  Tự động đọc conversation hiện tại, lọc ra những nội dung đã được chốt, tổng hợp thành bản preview để người dùng confirm, rồi ghi thẳng vào đúng chương, mục trong paper/luan_van.tex theo đúng style luận văn thạc sĩ Bách Khoa.
 
   LUÔN dùng skill này khi người dùng nói: "update luận văn", "ghi vào thesis", "append vào report", "update latex", "lưu lại những gì đã chốt", "sync vào paper", hoặc bất kỳ yêu cầu nào liên quan đến ghi nội dung từ conversation vào file luận văn. Cũng gợi ý dùng skill này khi một conversation dài về một section cụ thể vừa kết thúc.
 ---
@@ -21,10 +21,11 @@ LVTN/
 │   ├── WRITING_STYLE.md                ← style guide (đã embed vào skill này)
 │   └── DATASOURCE_CONTEXT.md           ← nguồn và trạng thái dữ liệu
 └── paper/
-    └── thesis.tex                      ← nguồn duy nhất của nội dung chương
+    ├── luan_van.tex                    ← luận văn giai đoạn 2, nguồn duy nhất của nội dung chương
+    └── thesis.tex                      ← đề cương đã bảo vệ (06/2026), KHÔNG sửa
 ```
 
-Không còn file outline `.md` theo chương. Mọi nội dung chương ghi thẳng vào `thesis.tex`.
+Không còn file outline `.md` theo chương. Mọi nội dung chương ghi thẳng vào `luan_van.tex`. Tuyệt đối không ghi vào `thesis.tex`, file đó là bản đề cương đã nộp, giữ nguyên để đối chiếu.
 
 ---
 
@@ -49,21 +50,23 @@ Không còn file outline `.md` theo chương. Mọi nội dung chương ghi th�
 
 ### Bước 2 — Detect section
 
-Map nội dung đã chốt vào đúng `\chapter{}` / `\section{}` của `paper/thesis.tex`:
+Map nội dung đã chốt vào đúng `\chapter{}` / `\section{}` của `paper/luan_van.tex`:
 
-| Chương trong thesis.tex | Nội dung |
+| Chương trong luan_van.tex | Nội dung |
 |------|---------|
 | `\chapter{Giới thiệu}` | Đặt vấn đề, Mục tiêu, Phạm vi, Đóng góp, Tổng quan |
 | `\chapter{Công trình liên quan}` | Các công trình liên quan, OCR-LLM, VLM, Benchmark, Research gap |
 | `\chapter{Cơ sở lý thuyết}` | IDP, OCR, LLM, VLM, Structured Extraction, Metrics |
-| `\chapter{Phương pháp đề xuất}` | Kiến trúc hệ thống, Dataset, Pipeline A/B, Kết quả, Thiết kế hệ thống |
+| `\chapter{Phương pháp đề xuất và thực nghiệm đánh giá}` | Kiến trúc hai pipeline, Dataset, Pipeline A/B, Kết quả, Khuyến nghị lựa chọn pipeline |
+| `\chapter{Thiết kế và hiện thực hệ thống}` | Yêu cầu, Kiến trúc tổng thể, Thiết kế chi tiết, Hiện thực, Kiểm thử và đánh giá hệ thống |
 | `\chapter{Kết luận}` | Nhận xét, Hạn chế, Hướng phát triển |
+| Phụ lục A/B/C | Mô hình và cấu hình thực nghiệm, Prompt template, Kết quả đầy đủ |
 
-Một conversation thường span nhiều section — gom tất cả lại, không chỉ lấy section chính. Nếu cấu trúc chương đã đổi (ví dụ tách chương hệ thống riêng), lấy danh sách `\chapter` thực tế trong `thesis.tex` làm chuẩn.
+Một conversation thường span nhiều section — gom tất cả lại, không chỉ lấy section chính. Nếu cấu trúc chương đã đổi (ví dụ tách chương hệ thống riêng), lấy danh sách `\chapter` thực tế trong `luan_van.tex` làm chuẩn.
 
 ### Bước 3 — Đọc vị trí đích
 
-Đọc `\section{}` tương ứng trong `thesis.tex` để:
+Đọc `\section{}` tương ứng trong `luan_van.tex` để:
 - Nắm nội dung đã có, tránh trùng lặp
 - Xác định vị trí insert phù hợp (cuối section nào, sau đoạn nào)
 
@@ -86,9 +89,9 @@ Confirm tất cả? Hoặc chỉnh: "bỏ ý 3", "ý 2 vào 3.2 thay vì 3.1", "
 
 Chờ người dùng confirm trước khi ghi bất cứ thứ gì. Sau khi confirm → update **lần lượt từng chương** theo thứ tự, báo cáo xong từng chương trước khi sang chương tiếp theo.
 
-### Bước 5 — Update thesis.tex
+### Bước 5 — Update luan_van.tex
 
-Mở `LVTN/paper/thesis.tex`, tìm đúng `\chapter{}` / `\section{}` và insert nội dung mới vào đúng vị trí, theo đúng LaTeX style bên dưới.
+Mở `LVTN/paper/luan_van.tex`, tìm đúng `\chapter{}` / `\section{}` và insert nội dung mới vào đúng vị trí, theo đúng LaTeX style bên dưới.
 
 **Quan trọng:** Đây là file duy nhất chứa toàn bộ luận văn — đọc kỹ context xung quanh vị trí insert để đảm bảo nội dung mới liền mạch với phần trước và sau.
 
@@ -102,7 +105,7 @@ Nếu nội dung vừa ghi là một quyết định về scope, mô hình, data
 
 ### Xưng hô
 - Chương 1: dùng **"tôi"** (quan điểm cá nhân)
-- Chương 2, 3, 4, 5: dùng **"tác giả"**
+- Chương 2, 3, 4, 5, 6: dùng **"tác giả"**
 - Tuyệt đối không dùng "chúng tôi" hay "nhóm tác giả"
 
 ### Câu mở đầu chương
@@ -249,7 +252,7 @@ Giới thiệu ngắn (1 câu)
 
 ## LaTeX Conventions — Tiêu đề section
 
-Preamble `thesis.tex` đã có `titlesec` + `\raggedright` → tiêu đề tự wrap, không overflow:
+Preamble `luan_van.tex` đã có `titlesec` + `\raggedright` → tiêu đề tự wrap, không overflow:
 ```latex
 \titleformat*{\section}{\Large\bfseries\raggedright}
 \titleformat*{\subsection}{\large\bfseries\raggedright}
@@ -264,7 +267,7 @@ Preamble `thesis.tex` đã có `titlesec` + `\raggedright` → tiêu đề tự 
 ## Nguyên tắc bất biến
 
 1. **Không hallucinate** — chỉ ghi những gì thực sự có trong conversation. Nếu không rõ kết quả, ghi `% TODO: chưa xác nhận`
-2. **Không trùng lặp** — đọc section đích trong `thesis.tex` trước, không ghi nội dung đã có
+2. **Không trùng lặp** — đọc section đích trong `luan_van.tex` trước, không ghi nội dung đã có
 3. **Không skip bước confirm** — luôn show preview, luôn chờ người dùng ok
 4. **Nhất quán thuật ngữ** — kiểm tra cách đã dùng trong file hiện tại, dùng lại đúng cách đó
 5. **Cite key** — nếu conversation nhắc đến paper đã có trong `THESIS_CONTEXT.md` (Mục 10), dùng đúng tên paper để đặt cite key tạm (vd: `\cite{huang2019sroie}`)

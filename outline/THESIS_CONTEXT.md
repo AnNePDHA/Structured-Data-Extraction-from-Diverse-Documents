@@ -2,7 +2,7 @@
 
 > File này dùng để cung cấp context cho Claude Code khi thực hiện các task liên quan đến luận văn.
 >
-> Cập nhật lần cuối: 2026-10-11 — xem **Mục 15. Changelog** để biết lịch sử thay đổi.
+> Cập nhật lần cuối: 2026-10-12 — xem **Mục 15. Changelog** để biết lịch sử thay đổi.
 
 ---
 
@@ -98,6 +98,27 @@ Qua khảo sát tài liệu, **chưa có nghiên cứu nào** đồng thời th�
 Tài liệu tham khảo
 ```
 
+### Mục lục luận văn giai đoạn 2 (`paper/luan_van.tex`, chờ GVHD xác nhận việc tách chương 5)
+
+```
+Phần phụ đầu: nhiệm vụ, lời cảm ơn, tóm tắt, abstract, lời cam đoan, từ viết tắt   [viết mới]
+
+1  Giới thiệu                                       [sửa 1.2, 1.3, 1.4; 1.5 đã sửa]
+2  Công trình liên quan                             [giữ]
+3  Cơ sở lý thuyết                                  [giữ]
+4  Phương pháp đề xuất và thực nghiệm đánh giá
+   4.1–4.5  như đề cương                            [giữ]
+   4.6  Thảo luận và khuyến nghị lựa chọn pipeline  [viết mới]
+5  Thiết kế và hiện thực hệ thống                   [viết mới]
+   5.1  Phân tích yêu cầu (đối tượng, chức năng, phi chức năng, use case)
+   5.2  Kiến trúc tổng thể
+   5.3  Thiết kế chi tiết (mô hình dữ liệu, API, schema trường, gợi ý pipeline, đánh dấu trường cần rà soát)
+   5.4  Hiện thực hệ thống (công nghệ, giao diện)
+   5.5  Kiểm thử và đánh giá hệ thống (chức năng, đầu cuối 60 mẫu, độ trễ và chi phí)
+6  Kết luận                                         [bổ sung phần hệ thống]
+Phụ lục A/B/C                                       [viết mới]
+```
+
 ---
 
 ## 6. Kiến trúc hệ thống
@@ -123,6 +144,28 @@ Field config (config/fields/*.json) + Prompt template (config/prompts/*.md)
 ```
 
 Code: `pipelines/vlm_direct.py`, `pipelines/ocr_llm.py`, lớp chung `pipelines/base.py` (retry + pacing), client theo nhà cung cấp trong `pipelines/model_clients.py`, OCR engine trong `pipelines/ocr_engines.py`.
+
+### Hệ thống giai đoạn 2 (cập nhật 2026-10-12)
+
+Hướng đã chốt: tập trung xây dựng hệ thống trích xuất dùng các mô hình VLM và LLM. Kết quả đánh giá của đề cương giữ nguyên và đóng vai trò benchmark tham khảo khi sử dụng hệ thống.
+
+| # | Chức năng | Trạng thái |
+|---|---|---|
+| 1 | Tải tài liệu (PDF, ảnh), nhiều trang thì lấy trang đầu | Đề xuất, có trong tin nhắn soạn cho GVHD |
+| 2 | Khai báo schema trường (mẫu có sẵn hoặc tự định nghĩa) | Đề xuất, có trong tin nhắn soạn cho GVHD |
+| 3 | Chọn pipeline và mô hình | Đề xuất, có trong tin nhắn soạn cho GVHD |
+| 4 | Chạy trích xuất và theo dõi tiến trình | Đề xuất, có trong tin nhắn soạn cho GVHD |
+| 5 | Xem, sửa và xuất kết quả (JSON, CSV), kèm độ trễ, token, chi phí | Đề xuất, có trong tin nhắn soạn cho GVHD |
+| 6 | Lịch sử các lượt trích xuất | Đề xuất, có trong tin nhắn soạn cho GVHD |
+| 7 | Gợi ý pipeline và mô hình theo kết quả benchmark | Đề xuất, có trong tin nhắn soạn cho GVHD |
+| 8 | Đánh dấu trường cần rà soát | Đề xuất, chưa chọn cách làm (đối chiếu văn bản OCR, hoặc chạy cả hai pipeline rồi so lệch) |
+| 9 | Quản lý mô hình: thêm, sửa, xóa endpoint mô hình mới | **Học viên chốt là phải có** |
+| 10 | Chạy benchmark 60 mẫu cho mô hình mới thêm, nhập kết quả vào bảng gợi ý | Đề xuất, chưa chốt |
+| 11 | Tô sáng vị trí trường trên ảnh gốc bằng bbox của OCR | Đề xuất, chưa chốt |
+
+Không làm: đăng nhập và phân quyền, tài liệu nhiều trang, fine-tuning (kể cả LayoutLM đúng nghĩa, vì đề tài giới hạn zero-shot).
+
+Ghi chú kỹ thuật cho chức năng 9: danh sách mô hình đang khai cứng trong `MODEL_REGISTRY` của `pipelines/model_clients.py`, endpoint và khóa đọc từ biến môi trường, mỗi nhà cung cấp một endpoint. Cần chuyển sang lưu trong cơ sở dữ liệu của hệ thống.
 
 ---
 
@@ -257,7 +300,8 @@ Chi tiết nguồn và schema: xem `outline/DATASOURCE_CONTEXT.md`.
 |---|---|---|---|
 | 1 | Hệ thống mới là mockup, chưa có ứng dụng chạy được | 🔴 Cao | Hiện thực backend bọc 2 pipeline và giao diện 5 bước, đặt trong `system/` |
 | 2 | Chưa chốt tech stack và kiến trúc hệ thống | 🔴 Cao | Chốt trong tuần 1 (đề xuất: FastAPI + SQLite, giao diện web theo mockup, dự phòng Streamlit) |
-| 3 | Cấu trúc chương: chương 4 đang gộp phương pháp, thực nghiệm và mockup | 🟠 Trung bình | Đề xuất tách chương hệ thống riêng, cần GVHD xác nhận |
+| 3 | Cấu trúc chương: chương 4 đang gộp phương pháp, thực nghiệm và mockup | 🟠 Trung bình | Đã dựng khung 6 chương trong `luan_van.tex` và soạn tin nhắn xin ý kiến GVHD (12/10). Chờ GVHD xác nhận |
+| 6 | Danh sách chức năng hệ thống chưa chốt | 🔴 Cao | Xem bảng ở Mục 6. Chờ GVHD phản hồi, học viên chốt các mục 8, 10, 11 |
 | 4 | Thiếu trang phụ đầu (nhiệm vụ, cảm ơn, tóm tắt, abstract, cam đoan) và phụ lục A/B/C | 🟠 Trung bình | Viết ở tuần 8 theo lộ trình trong `README.md` |
 | 5 | Benchmark nhỏ (60 mẫu, 5 mẫu viết tay) | 🟡 Thấp | Giữ nguyên, đã ghi là hạn chế ở chương 5. Hội đồng không yêu cầu mở rộng |
 
@@ -271,7 +315,7 @@ Chi tiết nguồn và schema: xem `outline/DATASOURCE_CONTEXT.md`.
 LVTN/
 ├── README.md                  ← trạng thái + lộ trình giai đoạn 2
 ├── outline/                   ← THESIS_CONTEXT, WRITING_STYLE, DATASOURCE_CONTEXT
-├── paper/                     ← thesis.tex (nguồn duy nhất của nội dung chương), references.bib, Images/
+├── paper/                     ← luan_van.tex (luận văn giai đoạn 2, nguồn duy nhất của nội dung chương), thesis.tex (đề cương, không sửa), references.bib, Images/
 ├── archive/de_cuong/          ← PDF báo cáo và slide bảo vệ đề cương
 ├── config/fields, prompts     ← schema trường và prompt template dùng chung 2 pipeline
 ├── pipelines/                 ← Pipeline A, Pipeline B, model client, OCR engine
@@ -311,7 +355,7 @@ Khi nhận task liên quan đến luận văn này, Claude Code cần lưu ý:
 5. **Save kết quả incremental**: Dùng `.jsonl` append sau mỗi request, tránh mất dữ liệu khi bị rate limit giữa chừng
 6. **Tiếng Việt**: Dùng `ensure_ascii=False` khi json.dumps, đảm bảo encoding UTF-8 toàn bộ pipeline
 7. **Đây là luận văn thạc sĩ**: Code cần clean, có docstring, reproducible — không chỉ cần chạy được
-8. **Nội dung chương**: chỉ sửa trong `paper/thesis.tex`, không còn file outline `.md` theo chương
+8. **Nội dung chương**: chỉ sửa trong `paper/luan_van.tex`, không còn file outline `.md` theo chương. `paper/thesis.tex` là bản đề cương đã bảo vệ, không sửa
 9. **Hệ thống giai đoạn 2**: tái dùng `pipelines/` và `evaluation/`, không sao chép logic sang `system/`
 
 ---
@@ -339,6 +383,10 @@ Khi nhận task liên quan đến luận văn này, Claude Code cần lưu ý:
 | 2026-06 | GVHD | Bảo vệ đề cương xong. Hội đồng: không đổi scope, yêu cầu hiện thực hệ thống thật, tập trung vào xây dựng hệ thống | Buổi bảo vệ đề cương |
 | 2026-10-11 | Scope | Chuyển sang giai đoạn 2, hạn nộp tháng 12/2026, lộ trình 9 tuần trong `README.md` | Quyết định của học viên |
 | 2026-10-11 | Kỹ thuật | Dọn folder: xóa `draft/`, `publish/`, `slides/`, outline theo chương, file build. `thesis.tex` là nguồn duy nhất của nội dung chương. Chuyển DataV3 sang `data/VN/DataV3/`. Xóa mẫu custom (nhãn dinh dưỡng) | Tối giản quản lý |
+| 2026-10-12 | Mục lục | Tách file: `paper/thesis.tex` giữ nguyên là đề cương, luận văn giai đoạn 2 viết trong `paper/luan_van.tex`. Dựng khung 6 chương: chương 4 đổi tên thành "Phương pháp đề xuất và thực nghiệm đánh giá", mục 4.6 mới là khuyến nghị lựa chọn pipeline, thêm chương 5 "Thiết kế và hiện thực hệ thống", kết luận thành chương 6, thêm phụ lục A/B/C. Việc tách chương 5 chưa có xác nhận của GVHD | Quyết định của học viên |
+| 2026-10-12 | Kỹ thuật | `suthesis-ug.sty` thêm `\doctype` và `\titledate` để trang bìa dùng chung cho đề cương và luận văn | Tách file |
+| 2026-10-12 | Scope | Chốt hướng giai đoạn 2: tập trung xây dựng hệ thống trích xuất dùng mô hình, kết quả đánh giá của đề cương là benchmark tham khảo khi sử dụng. Chốt phải có chức năng quản lý mô hình (thêm endpoint mô hình mới). Các chức năng còn lại là đề xuất, xem bảng Mục 6 | Quyết định của học viên |
+| 2026-10-12 | GVHD | Soạn tin nhắn gửi GVHD xin ý kiến về sườn 6 chương và danh sách chức năng. Chưa có phản hồi | Conversation 12/10 |
 | _(thêm vào đây)_ | | | |
 
 ---
