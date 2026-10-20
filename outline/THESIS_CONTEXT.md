@@ -2,7 +2,7 @@
 
 > File này dùng để cung cấp context cho Claude Code khi thực hiện các task liên quan đến luận văn.
 >
-> Cập nhật lần cuối: 2026-10-12 — xem **Mục 15. Changelog** để biết lịch sử thay đổi.
+> Cập nhật lần cuối: 2026-10-13 — xem **Mục 15. Changelog** để biết lịch sử thay đổi.
 
 ---
 
@@ -118,6 +118,20 @@ Phần phụ đầu: nhiệm vụ, lời cảm ơn, tóm tắt, abstract, lời 
 6  Kết luận                                         [bổ sung phần hệ thống]
 Phụ lục A/B/C                                       [viết mới]
 ```
+
+Trạng thái viết trong `luan_van.tex` (đối chiếu ngày 2026-10-13):
+
+| Phần | Trạng thái |
+|---|---|
+| Phần phụ đầu | Chưa viết, 6 mục đang là khối comment giữ chỗ |
+| Chương 1 | Có nội dung. 1.5 đã sửa theo 6 chương. 1.2 (mục tiêu 2) và 1.4 (đóng góp 4) còn `% TODO`, chờ hệ thống xong |
+| Chương 2 | Có nội dung: 5 công trình và mục tổng hợp khoảng trống nghiên cứu |
+| Chương 3 | Có nội dung đủ 6 mục |
+| Chương 4, mục 4.1–4.5 | Có nội dung, giữ từ đề cương |
+| Mục 4.6 | Chỉ có tiêu đề và `% TODO` |
+| Chương 5 | Chỉ có khung tiêu đề và `% TODO`. Riêng 5.4 "Giao diện người dùng" còn đoạn mô tả mockup và 5 hình `Mockup_Step` của đề cương, phải viết lại |
+| Chương 6 | Có nội dung của đề cương (tổng kết, hạn chế, hướng phát triển), còn `% TODO` bổ sung phần hệ thống |
+| Phụ lục A/B/C | Chỉ có tiêu đề và `% TODO` |
 
 ---
 
@@ -299,11 +313,11 @@ Chi tiết nguồn và schema: xem `outline/DATASOURCE_CONTEXT.md`.
 | # | Vấn đề | Mức độ | Hướng xử lý dự kiến |
 |---|---|---|---|
 | 1 | Hệ thống mới là mockup, chưa có ứng dụng chạy được | 🔴 Cao | Hiện thực backend bọc 2 pipeline và giao diện 5 bước, đặt trong `system/` |
-| 2 | Chưa chốt tech stack và kiến trúc hệ thống | 🔴 Cao | Chốt trong tuần 1 (đề xuất: FastAPI + SQLite, giao diện web theo mockup, dự phòng Streamlit) |
+| 2 | Chưa chốt kiến trúc hệ thống và công nghệ giao diện | 🔴 Cao | Backend đã chốt 13/10: FastAPI + SQLite. Giao diện: đề xuất web theo mockup, dự phòng Streamlit. Kiến trúc chốt trong tuần 1 |
 | 3 | Cấu trúc chương: chương 4 đang gộp phương pháp, thực nghiệm và mockup | 🟠 Trung bình | Đã dựng khung 6 chương trong `luan_van.tex` và soạn tin nhắn xin ý kiến GVHD (12/10). Chờ GVHD xác nhận |
 | 6 | Danh sách chức năng hệ thống chưa chốt | 🔴 Cao | Xem bảng ở Mục 6. Chờ GVHD phản hồi, học viên chốt các mục 8, 10, 11 |
 | 4 | Thiếu trang phụ đầu (nhiệm vụ, cảm ơn, tóm tắt, abstract, cam đoan) và phụ lục A/B/C | 🟠 Trung bình | Viết ở tuần 8 theo lộ trình trong `README.md` |
-| 5 | Benchmark nhỏ (60 mẫu, 5 mẫu viết tay) | 🟡 Thấp | Giữ nguyên, đã ghi là hạn chế ở chương 5. Hội đồng không yêu cầu mở rộng |
+| 5 | Benchmark nhỏ (60 mẫu, 5 mẫu viết tay) | 🟡 Thấp | Giữ nguyên, đã ghi là hạn chế ở chương Kết luận (chương 6 của `luan_van.tex`). Hội đồng không yêu cầu mở rộng |
 
 Đã đóng: dataset tiếng Việt (dùng tài liệu ngân hàng tự thu thập), GVHD xác nhận scope (đề cương đã bảo vệ xong).
 
@@ -387,6 +401,9 @@ Khi nhận task liên quan đến luận văn này, Claude Code cần lưu ý:
 | 2026-10-12 | Kỹ thuật | `suthesis-ug.sty` thêm `\doctype` và `\titledate` để trang bìa dùng chung cho đề cương và luận văn | Tách file |
 | 2026-10-12 | Scope | Chốt hướng giai đoạn 2: tập trung xây dựng hệ thống trích xuất dùng mô hình, kết quả đánh giá của đề cương là benchmark tham khảo khi sử dụng. Chốt phải có chức năng quản lý mô hình (thêm endpoint mô hình mới). Các chức năng còn lại là đề xuất, xem bảng Mục 6 | Quyết định của học viên |
 | 2026-10-12 | GVHD | Soạn tin nhắn gửi GVHD xin ý kiến về sườn 6 chương và danh sách chức năng. Chưa có phản hồi | Conversation 12/10 |
+| 2026-10-13 | Mục lục | Thêm bảng trạng thái viết từng chương của `luan_van.tex` vào Mục 5. Repo không có thay đổi nào sau commit 12/10: chưa có thư mục `system/`, tech stack và danh sách chức năng chưa chốt | Đối chiếu context với repo |
+| 2026-10-13 | Kỹ thuật | Chốt công nghệ backend: FastAPI, lưu trữ bằng SQLite. Hosting cho hội đồng dùng thử để tính sau | Quyết định của học viên, ghi trong tin nhắn báo cáo GVHD |
+| 2026-10-13 | GVHD | Học viên soạn tin nhắn báo cáo tiến độ cho thầy: sườn 6 chương, các mục chương 5, tiến độ mockup và công nghệ, kế hoạch tuần | Conversation 13/10 |
 | _(thêm vào đây)_ | | | |
 
 ---
