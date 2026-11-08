@@ -7,7 +7,9 @@ LLM backend is a ModelClient (Gemini or Azure).
 import json
 import logging
 import re
+import time
 from pathlib import Path
+from typing import Callable
 
 from .base import BasePipeline, ExtractionResult
 from .model_clients import ModelClient
@@ -53,15 +55,32 @@ class OCRLLMPipeline(BasePipeline):
         """Delegate OCR to the injected engine."""
         return self.ocr_engine.extract_text(image_path)
 
-    def extract(self, image_path: Path) -> ExtractionResult:
+    def extract(
+        self, image_path: Path, on_stage: Callable[[str], None] | None = None
+    ) -> ExtractionResult:
         """Extract fields using OCR → LLM pipeline.
+
+        on_stage, if given, is called with "ocr", "model", "parse" as each
+        stage starts.
 
         Returns:
             ExtractionResult with .fields, .usage (LLM tokens), and .meta
-            (OCR character count for debugging).
+            (OCR character count, OCR text, rendered prompt, raw response,
+            per-stage seconds).
         """
+        notify = on_stage or (lambda _stage: None)
+        timings = {}
+
+        notify("ocr")
+        t0 = time.perf_counter()
         ocr_text = self._run_ocr(image_path)
-        meta = {"ocr_chars": len(ocr_text)}
+        timings["ocr"] = round(time.perf_counter() - t0, 3)
+        meta = {
+            "ocr_chars": len(ocr_text),
+            "ocr_engine": self.ocr_engine.name,
+            "ocr_text": ocr_text,
+            "stage_sec": timings,
+        }
 
         empty = {f: None for f in self.fields}
         if not ocr_text:
@@ -74,9 +93,15 @@ class OCRLLMPipeline(BasePipeline):
             field_names_str=", ".join(self.fields),
             ocr_text=ocr_text,
         )
+        meta["prompt"] = prompt
 
+        notify("model")
+        t0 = time.perf_counter()
         raw_text, usage = self._call_with_retry(self.client.generate, prompt)
+        timings["model"] = round(time.perf_counter() - t0, 3)
+        meta["raw_response"] = raw_text
 
+        notify("parse")
         if raw_text is None:
             logger.warning(
                 "Empty / blocked response for %s (finish_reason may be SAFETY)",

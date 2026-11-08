@@ -11,16 +11,19 @@ Providers
 - azure_openai  : openai.AzureOpenAI chat.completions (gpt-4o, gpt-5-chat, gpt-5.2-chat)
 - azure_foundry : azure-ai-inference ChatCompletionsClient
                   (Phi-4-multimodal-instruct, Llama-4-Maverick-...)
+- openai_compatible : openai.OpenAI with a custom base_url (OpenRouter, Groq, vLLM, ...)
 
 Credentials/endpoints live in environment variables (see .env.example);
-the model→provider mapping lives in MODEL_REGISTRY below.
+the model list, provider, pricing and env var names live in config/models.json.
 """
 
 import base64
+import json
 import logging
 import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from pathlib import Path
 
 from PIL import Image
 
@@ -305,32 +308,87 @@ class AzureFoundryClient(ModelClient):
 
 
 # ---------------------------------------------------------------------------
+# OpenAI-compatible endpoints (OpenRouter, Groq, vLLM, ...)
+# ---------------------------------------------------------------------------
+
+
+class OpenAICompatibleClient(ModelClient):
+    """Any endpoint that speaks the OpenAI chat.completions protocol."""
+
+    provider = "openai_compatible"
+
+    def __init__(
+        self,
+        model: str,
+        base_url: str,
+        api_key: str,
+        supports_vision: bool = False,
+        min_interval_sec: float = 0.0,
+        temperature: float | None = 0.0,
+    ):
+        from openai import OpenAI
+
+        self.name = model
+        self.supports_vision = supports_vision
+        self.min_interval_sec = min_interval_sec
+        self.temperature = temperature
+        self._client = OpenAI(base_url=base_url, api_key=api_key)
+
+    def generate(
+        self, prompt: str, image: Image.Image | None = None
+    ) -> tuple[str | None, dict | None]:
+        if image is not None:
+            content = [
+                {"type": "text", "text": prompt},
+                {"type": "image_url", "image_url": {"url": _image_to_data_uri(image)}},
+            ]
+        else:
+            content = prompt
+        kwargs = {}
+        if self.temperature is not None:
+            kwargs["temperature"] = self.temperature
+        response = self._client.chat.completions.create(
+            model=self.name,
+            messages=[{"role": "user", "content": content}],
+            **kwargs,
+        )
+        text = response.choices[0].message.content if response.choices else None
+        usage = None
+        if getattr(response, "usage", None) is not None:
+            u = response.usage
+            usage = _usage_dict(
+                prompt_tokens=getattr(u, "prompt_tokens", None),
+                completion_tokens=getattr(u, "completion_tokens", None),
+                total_tokens=getattr(u, "total_tokens", None),
+            )
+        return (text or None), usage
+
+
+# ---------------------------------------------------------------------------
 # Registry + factory
 # ---------------------------------------------------------------------------
 
-# Explicit Azure models. Gemini/Gemma are matched by name prefix below.
-# "fixed_temperature": True → model only accepts its default temperature;
-# we must NOT send temperature=0 (gpt-5 family returns HTTP 400 otherwise).
-MODEL_REGISTRY: dict[str, dict] = {
-    "gpt-4o": {"provider": "azure_openai", "supports_vision": True},
-    "gpt-5-chat": {
-        "provider": "azure_openai",
-        "supports_vision": True,
-        "fixed_temperature": True,
-    },
-    "gpt-5.2-chat": {
-        "provider": "azure_openai",
-        "supports_vision": True,
-        "fixed_temperature": True,
-    },
-    "Phi-4-multimodal-instruct": {"provider": "azure_foundry", "supports_vision": True},
-    "Llama-4-Maverick-17B-128E-Instruct-FP8": {
-        "provider": "azure_foundry",
-        "supports_vision": True,
-    },
-    # Text-only → OCR-LLM pipeline only (VLMDirectPipeline rejects no-vision models).
-    "DeepSeek-V4-Flash": {"provider": "azure_foundry", "supports_vision": False},
-}
+PROVIDERS = ("azure_openai", "azure_foundry", "openai_compatible", "gemini")
+
+MODELS_CONFIG_PATH = Path(
+    os.getenv(
+        "MODELS_CONFIG",
+        Path(__file__).resolve().parent.parent / "config" / "models.json",
+    )
+)
+
+
+def load_model_registry(path: Path | None = None) -> dict[str, dict]:
+    """Read config/models.json on every call so edits from the web app apply at once.
+
+    Each entry: provider, supports_vision, fixed_temperature?, price_per_1m?,
+    endpoint_env / endpoint, key_env, api_version_env (azure_openai),
+    deployment? (azure_openai), min_interval_sec?.
+    "fixed_temperature": true → model only accepts its default temperature;
+    we must NOT send temperature=0 (gpt-5 family returns HTTP 400 otherwise).
+    """
+    with open(path or MODELS_CONFIG_PATH, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def _require_env(*names: str) -> list[str]:
@@ -346,54 +404,97 @@ def _require_env(*names: str) -> list[str]:
     return values
 
 
-def resolve_provider(model_name: str) -> str:
-    """Return the provider id for a model name."""
-    entry = MODEL_REGISTRY.get(model_name)
+def _is_gemini_name(model_name: str) -> bool:
+    return model_name.startswith(("gemini", "gemma", "models/gemini", "models/gemma"))
+
+
+def get_model_entry(model_name: str) -> dict:
+    """Return the config entry for a model; gemini-*/gemma-* fall back to GOOGLE_API_KEY."""
+    registry = load_model_registry()
+    entry = registry.get(model_name)
     if entry:
-        return entry["provider"]
-    if model_name.startswith(("gemini", "gemma", "models/gemini", "models/gemma")):
-        return "gemini"
+        return entry
+    if _is_gemini_name(model_name):
+        return {"provider": "gemini", "supports_vision": True, "key_env": "GOOGLE_API_KEY"}
     raise ValueError(
-        f"Unknown model {model_name!r}. Known Azure models: "
-        + ", ".join(MODEL_REGISTRY)
+        f"Unknown model {model_name!r}. Models in {MODELS_CONFIG_PATH.name}: "
+        + ", ".join(registry)
         + "; or any gemini-*/gemma-* model."
     )
 
 
-def build_client(model_name: str) -> ModelClient:
+def resolve_provider(model_name: str) -> str:
+    """Return the provider id for a model name."""
+    return get_model_entry(model_name)["provider"]
+
+
+def required_env(entry: dict) -> list[str]:
+    """Env var names a model entry needs at call time."""
+    names = [entry.get("key_env")]
+    if not entry.get("endpoint"):
+        names.append(entry.get("endpoint_env"))
+    if entry.get("provider") == "azure_openai":
+        names.append(entry.get("api_version_env"))
+    if entry.get("provider") == "gemini":
+        names = [entry.get("key_env")]
+    return [n for n in names if n]
+
+
+def build_client(model_name: str, entry: dict | None = None) -> ModelClient:
     """Construct the right ModelClient for a model name, reading creds from env.
 
     Raises RuntimeError if the provider's required env vars are unset, and
     ValueError if the model name is unrecognized.
     """
-    provider = resolve_provider(model_name)
+    entry = entry or get_model_entry(model_name)
+    provider = entry["provider"]
+    supports_vision = entry.get("supports_vision", False)
+    min_interval = float(entry.get("min_interval_sec", 0.0))
+    # gpt-5 family rejects temperature override → omit it (temperature=None).
+    temperature = None if entry.get("fixed_temperature") else 0.0
+
+    def endpoint() -> str:
+        if entry.get("endpoint"):
+            return entry["endpoint"]
+        return _require_env(entry["endpoint_env"])[0]
 
     if provider == "gemini":
-        (key,) = _require_env("GOOGLE_API_KEY")
-        return GeminiClient(model=model_name, api_key=key)
+        (key,) = _require_env(entry.get("key_env", "GOOGLE_API_KEY"))
+        return GeminiClient(
+            model=model_name, api_key=key, min_interval_sec=min_interval or 13.0
+        )
 
     if provider == "azure_openai":
-        endpoint, key, api_version = _require_env(
-            "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_KEY", "AZURE_OPENAI_API_VERSION"
-        )
-        # gpt-5 family rejects temperature override → omit it (temperature=None).
-        fixed_temp = MODEL_REGISTRY[model_name].get("fixed_temperature", False)
+        key, api_version = _require_env(entry["key_env"], entry["api_version_env"])
         return AzureOpenAIClient(
             model=model_name,
-            endpoint=endpoint,
+            endpoint=endpoint(),
             api_key=key,
             api_version=api_version,
-            temperature=None if fixed_temp else 0.0,
+            deployment=entry.get("deployment"),
+            min_interval_sec=min_interval,
+            temperature=temperature,
         )
 
     if provider == "azure_foundry":
-        endpoint, key = _require_env("AZURE_FOUNDRY_ENDPOINT", "AZURE_FOUNDRY_KEY")
-        supports_vision = MODEL_REGISTRY[model_name]["supports_vision"]
+        (key,) = _require_env(entry["key_env"])
         return AzureFoundryClient(
             model=model_name,
-            endpoint=endpoint,
+            endpoint=endpoint(),
             api_key=key,
             supports_vision=supports_vision,
+            min_interval_sec=min_interval,
+        )
+
+    if provider == "openai_compatible":
+        (key,) = _require_env(entry["key_env"])
+        return OpenAICompatibleClient(
+            model=model_name,
+            base_url=endpoint(),
+            api_key=key,
+            supports_vision=supports_vision,
+            min_interval_sec=min_interval,
+            temperature=temperature,
         )
 
     raise ValueError(f"Unhandled provider: {provider!r}")

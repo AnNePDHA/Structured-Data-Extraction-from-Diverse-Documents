@@ -8,7 +8,9 @@ model works. Prompt template and field list come from external config
 import json
 import logging
 import re
+import time
 from pathlib import Path
+from typing import Callable
 
 from PIL import Image
 
@@ -57,12 +59,23 @@ class VLMDirectPipeline(BasePipeline):
         self.field_config = field_config
         self.fields = field_names(field_config)
 
-    def extract(self, image_path: Path) -> ExtractionResult:
+    def extract(
+        self, image_path: Path, on_stage: Callable[[str], None] | None = None
+    ) -> ExtractionResult:
         """Extract fields from a document image via VLM.
+
+        on_stage, if given, is called with "prepare", "model", "parse" as each
+        stage starts. meta carries the rendered prompt, raw response and
+        per-stage seconds.
 
         Returns:
             ExtractionResult with .fields (dict) and .usage (token counts).
         """
+        notify = on_stage or (lambda _stage: None)
+        timings = {}
+
+        notify("prepare")
+        t0 = time.perf_counter()
         # Load image into memory and close file handle (avoid Windows file locks)
         with Image.open(image_path) as img:
             img.load()
@@ -73,28 +86,36 @@ class VLMDirectPipeline(BasePipeline):
             fields_schema=format_fields_schema(self.field_config),
             field_names_str=", ".join(self.fields),
         )
+        timings["prepare"] = round(time.perf_counter() - t0, 3)
 
+        notify("model")
+        t0 = time.perf_counter()
         raw_text, usage = self._call_with_retry(
             self.client.generate, prompt, image=image
         )
+        timings["model"] = round(time.perf_counter() - t0, 3)
 
+        notify("parse")
+        t0 = time.perf_counter()
+        meta = {"prompt": prompt, "raw_response": raw_text, "stage_sec": timings}
         empty = {f: None for f in self.fields}
         if raw_text is None:
             logger.warning(
                 "Empty / blocked response for %s (finish_reason may be SAFETY)",
                 image_path.name,
             )
-            return ExtractionResult(fields=empty, usage=usage)
+            return ExtractionResult(fields=empty, usage=usage, meta=meta)
 
         try:
             parsed = _parse_json_response(raw_text)
         except json.JSONDecodeError as exc:
             logger.warning("Failed to parse JSON response: %s\nRaw: %s", exc, raw_text)
-            return ExtractionResult(fields=empty, usage=usage)
+            return ExtractionResult(fields=empty, usage=usage, meta=meta)
 
         # Keep only configured fields, coerce to str or None
         out_fields = {}
         for f in self.fields:
             val = parsed.get(f)
             out_fields[f] = str(val).strip() if val is not None else None
-        return ExtractionResult(fields=out_fields, usage=usage)
+        timings["parse"] = round(time.perf_counter() - t0, 3)
+        return ExtractionResult(fields=out_fields, usage=usage, meta=meta)

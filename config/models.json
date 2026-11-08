@@ -1,0 +1,80 @@
+{
+  "gpt-5.2-chat": {
+    "display_name": "GPT-5.2",
+    "vendor": "OpenAI",
+    "provider": "azure_openai",
+    "supports_vision": true,
+    "fixed_temperature": true,
+    "price_per_1m": {"input": 1.75, "output": 14.0},
+    "endpoint_env": "AZURE_OPENAI_ENDPOINT",
+    "key_env": "AZURE_OPENAI_KEY",
+    "api_version_env": "AZURE_OPENAI_API_VERSION"
+  },
+  "gpt-4o": {
+    "display_name": "GPT-4o",
+    "vendor": "OpenAI",
+    "provider": "azure_openai",
+    "supports_vision": true,
+    "fixed_temperature": false,
+    "price_per_1m": {"input": 2.5, "output": 10.0},
+    "endpoint_env": "AZURE_OPENAI_ENDPOINT",
+    "key_env": "AZURE_OPENAI_KEY",
+    "api_version_env": "AZURE_OPENAI_API_VERSION"
+  },
+  "gpt-5-chat": {
+    "display_name": "GPT-5",
+    "vendor": "OpenAI",
+    "provider": "azure_openai",
+    "supports_vision": true,
+    "fixed_temperature": true,
+    "price_per_1m": null,
+    "endpoint_env": "AZURE_OPENAI_ENDPOINT",
+    "key_env": "AZURE_OPENAI_KEY",
+    "api_version_env": "AZURE_OPENAI_API_VERSION"
+  },
+  "Llama-4-Maverick-17B-128E-Instruct-FP8": {
+    "display_name": "Llama-4-Maverick",
+    "vendor": "Meta",
+    "provider": "azure_foundry",
+    "supports_vision": true,
+    "price_per_1m": {"input": 0.35, "output": 0.6},
+    "endpoint_env": "AZURE_FOUNDRY_ENDPOINT",
+    "key_env": "AZURE_FOUNDRY_KEY"
+  },
+  "Phi-4-multimodal-instruct": {
+    "display_name": "Phi-4-MM",
+    "vendor": "Microsoft",
+    "provider": "azure_foundry",
+    "supports_vision": true,
+    "price_per_1m": {"input": 0.08, "output": 0.32},
+    "endpoint_env": "AZURE_FOUNDRY_ENDPOINT",
+    "key_env": "AZURE_FOUNDRY_KEY"
+  },
+  "DeepSeek-V4-Flash": {
+    "display_name": "DeepSeek-V4",
+    "vendor": "DeepSeek",
+    "provider": "azure_foundry",
+    "supports_vision": false,
+    "price_per_1m": {"input": 0.14, "output": 0.28},
+    "endpoint_env": "AZURE_FOUNDRY_ENDPOINT",
+    "key_env": "AZURE_FOUNDRY_KEY"
+  },
+  "gemini-2.5-flash": {
+    "display_name": "Gemini 2.5 Flash",
+    "vendor": "Google",
+    "provider": "gemini",
+    "supports_vision": true,
+    "price_per_1m": {"input": 0.3, "output": 2.5},
+    "price_source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "key_env": "GOOGLE_API_KEY"
+  },
+  "gemini-3.5-flash-lite": {
+    "display_name": "Gemini 3.5 Flash-Lite",
+    "vendor": "Google",
+    "provider": "gemini",
+    "supports_vision": true,
+    "price_per_1m": {"input": 0.3, "output": 2.5},
+    "price_source": "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite",
+    "key_env": "GOOGLE_API_KEY"
+  }
+}

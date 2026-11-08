@@ -1,0 +1,27 @@
+{
+  "azure_di": {
+    "display_name": "Azure Document Intelligence",
+    "vendor": "Microsoft",
+    "engine": "azure_di",
+    "model_id": "prebuilt-read",
+    "price_per_page": 0.0015,
+    "endpoint_env": "AZURE_DOC_INTELLIGENCE_ENDPOINT",
+    "key_env": "AZURE_DOC_INTELLIGENCE_KEY"
+  },
+  "easyocr_vi": {
+    "display_name": "EasyOCR (vi + en)",
+    "vendor": "JaidedAI",
+    "engine": "easyocr",
+    "languages": ["vi", "en"],
+    "gpu": false,
+    "price_per_page": 0
+  },
+  "easyocr_en": {
+    "display_name": "EasyOCR (en)",
+    "vendor": "JaidedAI",
+    "engine": "easyocr",
+    "languages": ["en"],
+    "gpu": false,
+    "price_per_page": 0
+  }
+}

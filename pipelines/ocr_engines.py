@@ -5,6 +5,7 @@ Currently exposes:
     - AzureDocIntelligenceEngine: cloud, Azure Document Intelligence prebuilt-read.
 """
 
+import json
 import logging
 import os
 from abc import ABC, abstractmethod
@@ -158,3 +159,36 @@ def build_engine(name: str = "easyocr", lang: str | None = None) -> OCREngine:
     raise ValueError(
         f"Unknown OCR engine: {name!r}. Supported: 'easyocr', 'azure_di'."
     )
+
+
+OCR_CONFIG_PATH = Path(
+    os.getenv(
+        "OCR_ENGINES_CONFIG",
+        Path(__file__).resolve().parent.parent / "config" / "ocr_engines.json",
+    )
+)
+
+
+def load_ocr_registry(path: Path | None = None) -> dict[str, dict]:
+    """Read config/ocr_engines.json (engine id → engine type, languages, env var names, price)."""
+    with open(path or OCR_CONFIG_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def build_ocr_engine(engine_id: str, entry: dict | None = None) -> OCREngine:
+    """Construct an OCR engine from its config entry."""
+    entry = entry or load_ocr_registry().get(engine_id)
+    if entry is None:
+        raise ValueError(f"Unknown OCR engine id: {engine_id!r}")
+    engine = entry["engine"]
+    if engine == "easyocr":
+        return EasyOCREngine(
+            languages=entry.get("languages", "en"), gpu=entry.get("gpu", False)
+        )
+    if engine == "azure_di":
+        return AzureDocIntelligenceEngine(
+            endpoint=os.getenv(entry.get("endpoint_env", "")),
+            key=os.getenv(entry.get("key_env", "")),
+            model_id=entry.get("model_id", "prebuilt-read"),
+        )
+    raise ValueError(f"Unhandled OCR engine type: {engine!r}")

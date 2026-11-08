@@ -60,8 +60,8 @@ Mã nguồn hệ thống của giai đoạn 2 sẽ đặt ở `system/`, tái d�
 Hệ thống:
 
 - [ ] Chốt yêu cầu chức năng và kiến trúc
-- [ ] Backend bọc 2 pipeline
-- [ ] Giao diện 5 bước
+- [x] Backend bọc 2 pipeline
+- [x] Giao diện 5 bước
 - [ ] Kiểm thử đầu cuối trên 60 mẫu
 
 Luận văn (`paper/luan_van.tex`, đã dựng khung 6 chương, các mục mới còn `% TODO`):
@@ -86,3 +86,17 @@ python scripts/run_benchmark.py --help
 ```
 
 Khóa API đặt trong `.env`, mẫu ở `.env.example`.
+
+## Chạy hệ thống
+
+Cần Python venv ở trên và Node.js LTS (chỉ để build giao diện).
+
+```bash
+.venv\Scripts\pip install -r system/backend/requirements.txt
+cd system/frontend && npm install && npm run build && cd ../..
+.venv\Scripts\python -m uvicorn system.backend.app.main:app --port 8000
+```
+
+Mở `http://127.0.0.1:8000` (giao diện) hoặc `http://127.0.0.1:8000/docs` (API). Khi sửa giao diện, chạy thêm `npm run dev` trong `system/frontend` rồi mở `http://localhost:5173`.
+
+Tham số đều đọc từ file, không khai cứng trong code: `config/models.json` (model, provider, giá, tên biến môi trường chứa khóa), `config/ocr_engines.json`, `config/app.json` (prompt và model mặc định theo pipeline, mẫu thử), `config/fields/*.json`, `config/prompts/*.md`. Mỗi lượt trích xuất ghi ra `system/data/jobs/<id>/`.

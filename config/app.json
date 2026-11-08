@@ -1,0 +1,34 @@
+{
+  "pipelines": {
+    "vlm_direct": {
+      "display_name": "VLM Direct",
+      "prompt": "vlm_direct.md",
+      "default_model": "gemini-2.5-flash"
+    },
+    "ocr_llm": {
+      "display_name": "OCR → LLM",
+      "prompt": "ocr_llm.md",
+      "default_model": "gemini-2.5-flash",
+      "default_ocr_engine": "easyocr_vi"
+    }
+  },
+  "builtin_schemas": ["invoice", "contract", "id_card", "custom"],
+  "samples": [
+    {"id": "en_invoice", "label": "Invoice (EN)", "icon": "receipt", "schema": "invoice",
+     "path": "data-processed/EN/Typed-Invoice/img/INVOICE_000004.png"},
+    {"id": "en_contract", "label": "Contract (EN)", "icon": "scroll", "schema": "contract",
+     "path": "data-processed/EN/Typed-Contract/img/CONTRACT_000003.png"},
+    {"id": "vn_id_card", "label": "ID Card (VN)", "icon": "card", "schema": "id_card",
+     "path": "data-processed/VN/Typed-IdCard/img/12.rf.e73a5bc7f16605bdbb1c80a67a25bd80.jpg"},
+    {"id": "vn_contract", "label": "Contract (VN)", "icon": "scroll", "schema": "contract",
+     "path": "data-processed/VN/Typed-Contract/img/NGUYEN THI HOA DAO_HOP DONG CHO VAY.png"}
+  ],
+  "storage": {
+    "data_dir": "system/data"
+  },
+  "upload": {
+    "max_mb": 20,
+    "allowed_ext": [".pdf", ".jpg", ".jpeg", ".png", ".tif", ".tiff"],
+    "pdf_dpi": 200
+  }
+}
